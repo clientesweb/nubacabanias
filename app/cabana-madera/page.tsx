@@ -315,7 +315,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
-                  <span className="ml-2 text-sm text-stone-600 font-poppins">5.0 (8 reseñas)</span>
+                  <span className="ml-2 text-sm text-stone-600 font-poppins">5.0 (29 reseñas)</span>
                 </div>
               </div>
             </div>
