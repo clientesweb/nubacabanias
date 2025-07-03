@@ -7,10 +7,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import Link from "next/link"
 
 export default function CabanasNybaPage() {
   const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
-  // const [currentSlide, setCurrentSlide] = useState(0) // Removed
+  // const [currentSlide, setCurrentSlide] = useState(0] // Removed
 
   const announcements = [
     "🌿 20% OFF en estadías de 3+ noches",
@@ -32,7 +33,7 @@ export default function CabanasNybaPage() {
     {
       id: 1,
       name: "Cabaña de Madera",
-      capacity: "Máximo 3 personas",
+      capacity: "Máximo 2 personas",
       image: "/images/cabana-madera.webp",
       features: [
         "Construcción tradicional en troncos",
@@ -204,30 +205,32 @@ Enviado desde el sitio web de Cabañas NUBA`
             priority
             sizes="100vw"
           />
-
-          {/* WhatsApp overlay indicator */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all duration-300 flex items-center justify-center">
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-forest-700/90 text-white px-6 py-3 rounded-full flex items-center space-x-2 backdrop-blur-sm">
-              <MessageCircle className="h-5 w-5" />
-              <span className="font-poppins font-semibold">¡Consultanos por WhatsApp!</span>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Promotional Banner */}
       <section className="bg-white py-3 sm:py-4">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="relative overflow-hidden rounded-xl sm:rounded-2xl">
+          <div
+            className="relative overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer group"
+            onClick={() => {
+              const phoneNumber = "5493546501444"
+              const message =
+                "🎉 ¡Hola! Me interesa la promoción de invierno: 3 noches al precio de 2 en Cabañas NUBA. ¿Podrían brindarme más información sobre esta oferta especial?"
+              const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+              window.open(whatsappUrl, "_blank")
+            }}
+          >
             <Image
               src="/images/banner-invierno.webp"
-              alt="Promoción de invierno - 3 noches al precio de 2"
+              alt="Promoción de invierno - 3 noches al precio de 2 - Haz clic para consultar por WhatsApp"
               width={1200}
               height={300}
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
             />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300"></div>
           </div>
         </div>
       </section>
@@ -273,12 +276,14 @@ Enviado desde el sitio web de Cabañas NUBA`
                       </li>
                     ))}
                   </ul>
-                  <Button
-                    variant="outline"
-                    className="mt-4 w-full border-stone-300 hover:bg-stone-50 text-stone-700 rounded-full font-poppins font-medium text-sm bg-transparent"
-                  >
-                    Ver Detalles
-                  </Button>
+                  <Link href={`/cabana-${cabana.id === 1 ? "madera" : "familiar"}`}>
+                    <Button
+                      variant="outline"
+                      className="mt-4 w-full border-stone-300 hover:bg-stone-50 text-stone-700 rounded-full font-poppins font-medium text-sm bg-transparent"
+                    >
+                      Ver Detalles
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -341,7 +346,7 @@ Enviado desde el sitio web de Cabañas NUBA`
               <div className="relative order-1 lg:order-2">
                 <div className="mb-4">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.8!2d-64.5479336!3d-32.0560431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d2bb3d1ada3871%3A0xf3ba3e81998ccb5c!2sNUBA%20caba%C3%B1as!5e0!3m2!1ses!2sar!4v1640000000000!5m2!1ses!2sar"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.8!2d-64.5479336!3d-32.0560431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d2bb3d1ada3871%3A0xf3ba3e81998ccb5c!2sNUBA%20caba%C3%B1as!5e0!3m2!1ses!2sar!4v1640000000000!5m2!1ses!2sar!4v1640000000000"
                     width="100%"
                     height="300"
                     style={{ border: 0 }}
