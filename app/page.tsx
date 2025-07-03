@@ -10,7 +10,7 @@ import { useEffect, useState } from "react"
 
 export default function CabanasNybaPage() {
   const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
-  const [currentSlide, setCurrentSlide] = useState(0)
+  // const [currentSlide, setCurrentSlide] = useState(0) // Removed
 
   const announcements = [
     "🌿 20% OFF en estadías de 3+ noches",
@@ -18,15 +18,15 @@ export default function CabanasNybaPage() {
     "🔥 Cabañas equipadas con asador privado",
   ]
 
-  const slides = [
-    { src: "/images/bienvenidos-valle.webp", alt: "Bienvenidos a Cabañas Nuba - Vista del valle" },
-    { src: "/images/entrada-nuba-sign.webp", alt: "Entrada principal con cartel Nuba Cabañas" },
-    { src: "/images/piscina-montanas.webp", alt: "Piscina con vista a las montañas" },
-    { src: "/images/cabana-exterior-1.webp", alt: "Cabaña exterior con jardines paisajísticos" },
-    { src: "/images/complejo-cabanas.webp", alt: "Vista general del complejo de cabañas" },
-    { src: "/images/cabana-asador-lena.webp", alt: "Cabaña con asador de ladrillo y leñera" },
-    { src: "/images/muebles-exterior.webp", alt: "Área de estar exterior con muebles de madera" },
-  ]
+  // const slides = [ // Removed
+  //   { src: "/images/bienvenidos-valle.webp", alt: "Bienvenidos a Cabañas Nuba - Vista del valle" },
+  //   { src: "/images/entrada-nuba-sign.webp", alt: "Entrada principal con cartel Nuba Cabañas" },
+  //   { src: "/images/piscina-montanas.webp", alt: "Piscina con vista a las montañas" },
+  //   { src: "/images/cabana-exterior-1.webp", alt: "Cabaña exterior con jardines paisajísticos" },
+  //   { src: "/images/complejo-cabanas.webp", alt: "Vista general del complejo de cabañas" },
+  //   { src: "/images/cabana-asador-lena.webp", alt: "Cabaña con asador de ladrillo y leñera" },
+  //   { src: "/images/muebles-exterior.webp", alt: "Área de estar exterior con muebles de madera" },
+  // ]
 
   const cabanas = [
     {
@@ -67,13 +67,13 @@ export default function CabanasNybaPage() {
     return () => clearInterval(interval)
   }, [])
 
-  // Slideshow rotation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
+  // Slideshow rotation // Removed
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentSlide((prev) => (prev + 1) % slides.length)
+  //   }, 5000)
+  //   return () => clearInterval(interval)
+  // }, [])
 
   // WhatsApp click handler
   const handleWhatsAppClick = () => {
@@ -192,40 +192,26 @@ Enviado desde el sitio web de Cabañas NUBA`
         </div>
       </header>
 
-      {/* Hero Banner - Image Slideshow */}
+      {/* Hero Banner - Fixed Image with WhatsApp Link */}
       <section id="inicio" className="relative w-full pt-[68px] sm:pt-[76px] lg:pt-20">
-        <div className="relative w-full">
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`transition-opacity duration-1000 ${
-                index === currentSlide ? "opacity-100" : "opacity-0 absolute inset-0"
-              }`}
-            >
-              <Image
-                src={slide.src || "/placeholder.svg"}
-                alt={slide.alt}
-                width={1920}
-                height={1080}
-                className="w-full h-auto object-contain"
-                priority={index === 0}
-                sizes="100vw"
-              />
-            </div>
-          ))}
-        </div>
+        <div className="relative w-full cursor-pointer group" onClick={handleWhatsAppClick}>
+          <Image
+            src="/images/bienvenidos-valle.webp"
+            alt="Bienvenidos a Cabañas Nuba - Valle de Calamuchita - Haz clic para consultar por WhatsApp"
+            width={1920}
+            height={1080}
+            className="w-full h-auto object-contain group-hover:brightness-110 transition-all duration-300"
+            priority
+            sizes="100vw"
+          />
 
-        {/* Slide indicators */}
-        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
-                index === currentSlide ? "bg-forest-700 w-6 sm:w-8" : "bg-stone-400"
-              }`}
-            />
-          ))}
+          {/* WhatsApp overlay indicator */}
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all duration-300 flex items-center justify-center">
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-forest-700/90 text-white px-6 py-3 rounded-full flex items-center space-x-2 backdrop-blur-sm">
+              <MessageCircle className="h-5 w-5" />
+              <span className="font-poppins font-semibold">¡Consultanos por WhatsApp!</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -289,7 +275,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   </ul>
                   <Button
                     variant="outline"
-                    className="mt-4 w-full border-stone-300 hover:bg-stone-50 text-stone-700 rounded-full font-poppins font-medium text-sm"
+                    className="mt-4 w-full border-stone-300 hover:bg-stone-50 text-stone-700 rounded-full font-poppins font-medium text-sm bg-transparent"
                   >
                     Ver Detalles
                   </Button>
