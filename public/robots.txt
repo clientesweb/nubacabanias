@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nubacabanias.com.ar/sitemap.xml
+Sitemap: https://www.nubacabanias.com.ar/sitemap.xml
