@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://nubacabanias.com.ar"),
+  metadataBase: new URL("https://www.nubacabanias.com.ar"),
   alternates: {
     canonical: "/",
   },
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Cabañas NUBA - Santa Rosa de Calamuchita | Valle de Calamuchita",
     description:
       "Cabañas familiares en Santa Rosa de Calamuchita con todas las comodidades. Asador privado, cochera cubierta, Wi-Fi y más. ¡Reservá tu escapada al Valle de Calamuchita!",
-    url: "https://nubacabanias.com.ar",
+    url: "https://www.nubacabanias.com.ar",
     siteName: "Cabañas NUBA",
     images: [
       {
@@ -93,7 +93,6 @@ export const metadata: Metadata = {
     "msapplication-TileColor": "#5f7a5f",
     "msapplication-config": "/browserconfig.xml",
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -128,7 +127,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LodgingBusiness",
               name: "Cabañas NUBA",
-              image: "https://nubacabanias.com.ar/images/og-image-nuba.jpg",
+              image: "https://www.nubacabanias.com.ar/images/og-image-nuba.jpg",
               description:
                 "Cabañas familiares en Santa Rosa de Calamuchita, Valle de Calamuchita, Córdoba. Alojamiento completo con asador privado, cochera cubierta y todas las comodidades.",
               address: {
@@ -143,7 +142,7 @@ export default function RootLayout({
                 latitude: -32.0560431,
                 longitude: -64.5479336,
               },
-              url: "https://nubacabanias.com.ar",
+              url: "https://www.nubacabanias.com.ar",
               telephone: "+54-9-3546-50-1444",
               email: "info@nubacabanias.com.ar",
               sameAs: ["https://www.instagram.com/cabanasnuba", "https://fb.me/NubaCabanias"],
