@@ -2,9 +2,10 @@
 
 import type React from "react"
 
-import { MapPin, Wifi, Car, Users, Phone, Mail, MessageCircle, Instagram, Facebook } from "lucide-react"
+import { MapPin, Wifi, Car, Users, Phone, Mail, MessageCircle, Instagram, Facebook, Tag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import Link from "next/link"
@@ -14,7 +15,7 @@ export default function CabanasNybaPage() {
   // const [currentSlide, setCurrentSlide] = useState(0] // Removed
 
   const announcements = [
-    "🌿 20% OFF en estadías de +3 noches",
+    "🌿 20% OFF en estadías de 3+ noches",
     "🏔️ Valle de Calamuchita - Naturaleza pura",
     "🔥 Cabañas equipadas con asador privado",
   ]
@@ -35,6 +36,9 @@ export default function CabanasNybaPage() {
       name: "Cabaña de Madera",
       capacity: "Máximo 2 personas",
       image: "/images/cabana-madera.webp",
+      originalPrice: 45000,
+      offerPrice: 30000,
+      discount: 33,
       features: [
         "Construcción tradicional en troncos",
         "Ambiente rústico auténtico",
@@ -49,6 +53,9 @@ export default function CabanasNybaPage() {
       name: "Cabaña Familiar",
       capacity: "2-4 personas",
       image: "/images/cabana-familiar.jpg",
+      originalPrice: 65000,
+      offerPrice: 43000,
+      discount: 34,
       features: [
         "Construcción moderna en piedra",
         "Amplio jardín privado",
@@ -110,6 +117,15 @@ Enviado desde el sitio web de Cabañas NUBA`
     const phoneNumber = "5493546501444"
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(whatsappUrl, "_blank")
+  }
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARS",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price)
   }
 
   return (
@@ -174,6 +190,12 @@ Enviado desde el sitio web de Cabañas NUBA`
             >
               Cabañas
             </a>
+            <Link
+              href="/galeria"
+              className="text-stone-700 hover:text-forest-700 transition-colors font-poppins font-medium text-sm"
+            >
+              Galería
+            </Link>
             <a
               href="#ubicacion"
               className="text-stone-700 hover:text-forest-700 transition-colors font-poppins font-medium text-sm"
@@ -216,14 +238,14 @@ Enviado desde el sitio web de Cabañas NUBA`
             onClick={() => {
               const phoneNumber = "5493546501444"
               const message =
-                "🎉 ¡Hola! Me interesa la promoción de invierno: 3 noches al precio de 2 en Cabañas NUBA. ¿Podrían brindarme más información sobre esta oferta especial?"
+                "🎉 ¡Hola! Me interesa la promoción de invierno: 3 noches al precio de 2 en Cabañas NUBA (válida del 1 de julio al 15 de agosto). ¿Podrían brindarme más información sobre esta oferta especial?"
               const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
               window.open(whatsappUrl, "_blank")
             }}
           >
             <Image
-              src="/images/banner-invierno.webp"
-              alt="Promoción de invierno - 3 noches al precio de 2 - Haz clic para consultar por WhatsApp"
+              src="/images/banner-invierno-nuba-nuevo.webp"
+              alt="Promoción de invierno - 3 noches al precio de 2 - Válida del 1 de julio al 15 de agosto - Haz clic para consultar por WhatsApp"
               width={1920}
               height={400}
               className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
@@ -243,7 +265,7 @@ Enviado desde el sitio web de Cabañas NUBA`
               NUESTRAS CABAÑAS
             </h2>
             <p className="text-base sm:text-lg text-stone-600 max-w-xl mx-auto font-poppins font-medium px-4">
-              Cuatro espacios únicos diseñados para su descanso
+              Espacios únicos diseñados para su descanso con precios especiales
             </p>
           </div>
 
@@ -251,8 +273,15 @@ Enviado desde el sitio web de Cabañas NUBA`
             {cabanas.map((cabana, index) => (
               <Card
                 key={cabana.id}
-                className="group overflow-hidden border-0 shadow-none bg-stone-50/50 hover:bg-stone-100/50 transition-colors duration-300"
+                className="group overflow-hidden border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300 relative"
               >
+                {/* Discount Badge */}
+                <div className="absolute top-4 right-4 z-10">
+                  <Badge className="bg-red-600 text-white border-0 px-3 py-1 text-sm font-bold shadow-lg">
+                    -{cabana.discount}%
+                  </Badge>
+                </div>
+
                 <div className="relative overflow-hidden">
                   <Image
                     src={cabana.image || "/placeholder.svg"}
@@ -268,7 +297,31 @@ Enviado desde el sitio web de Cabañas NUBA`
                     <h3 className="text-lg sm:text-xl font-montserrat font-extrabold text-stone-900">{cabana.name}</h3>
                     <span className="text-sm text-stone-500 font-poppins font-medium">{cabana.capacity}</span>
                   </div>
-                  <ul className="space-y-2 text-stone-600 text-sm">
+
+                  {/* Pricing Section */}
+                  <div className="mb-4 p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center space-x-2">
+                        <Tag className="h-4 w-4 text-green-600" />
+                        <span className="text-green-800 font-poppins font-semibold text-sm">Precio Especial</span>
+                      </div>
+                      <Badge className="bg-green-600 text-white text-xs">3x2</Badge>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-stone-500 line-through font-poppins text-sm">
+                        {formatPrice(cabana.originalPrice)}
+                      </span>
+                      <span className="text-green-700 font-montserrat font-extrabold text-xl">
+                        {formatPrice(cabana.offerPrice)}
+                      </span>
+                      <span className="text-green-600 font-poppins text-xs">por noche</span>
+                    </div>
+                    <p className="text-green-700 font-poppins text-xs mt-1">
+                      *Válido hasta el 15 de agosto - 3 noches al precio de 2
+                    </p>
+                  </div>
+
+                  <ul className="space-y-2 text-stone-600 text-sm mb-4">
                     {cabana.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center font-poppins">
                         <span className="w-1 h-1 bg-forest-600 rounded-full mr-3 flex-shrink-0"></span>
@@ -277,11 +330,8 @@ Enviado desde el sitio web de Cabañas NUBA`
                     ))}
                   </ul>
                   <Link href={`/cabana-${cabana.id === 1 ? "madera" : "familiar"}`}>
-                    <Button
-                      variant="outline"
-                      className="mt-4 w-full border-stone-300 hover:bg-stone-50 text-stone-700 rounded-full font-poppins font-medium text-sm bg-transparent"
-                    >
-                      Ver Detalles
+                    <Button className="w-full bg-gradient-to-r from-forest-600 to-forest-700 text-white hover:from-forest-700 hover:to-forest-800 rounded-full font-poppins font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                      Ver Detalles y Reservar
                     </Button>
                   </Link>
                 </CardContent>
