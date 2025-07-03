@@ -83,9 +83,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/images/logo-cabanas-nuba.png",
-    shortcut: "/images/logo-cabanas-nuba.png",
-    apple: "/images/logo-cabanas-nuba.png",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   manifest: "/manifest.json",
   other: {
