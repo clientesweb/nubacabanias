@@ -14,7 +14,7 @@ export default function CabanasNybaPage() {
   // const [currentSlide, setCurrentSlide] = useState(0] // Removed
 
   const announcements = [
-    "🌿 20% OFF en estadías de 3+ noches",
+    "🌿 20% OFF en estadías de +3 noches",
     "🏔️ Valle de Calamuchita - Naturaleza pura",
     "🔥 Cabañas equipadas con asador privado",
   ]
@@ -209,10 +209,10 @@ Enviado desde el sitio web de Cabañas NUBA`
       </section>
 
       {/* Promotional Banner */}
-      <section className="bg-white py-3 sm:py-4">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="bg-white py-0">
+        <div className="w-full">
           <div
-            className="relative overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer group"
+            className="relative overflow-hidden cursor-pointer group"
             onClick={() => {
               const phoneNumber = "5493546501444"
               const message =
@@ -224,13 +224,13 @@ Enviado desde el sitio web de Cabañas NUBA`
             <Image
               src="/images/banner-invierno.webp"
               alt="Promoción de invierno - 3 noches al precio de 2 - Haz clic para consultar por WhatsApp"
-              width={1200}
-              height={300}
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+              width={1920}
+              height={400}
+              className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
               priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+              sizes="100vw"
             />
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300"></div>
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
           </div>
         </div>
       </section>
