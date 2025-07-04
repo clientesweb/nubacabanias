@@ -10,85 +10,86 @@ import {
   ChevronRight,
   X,
   Star,
-  Users,
+  Bed,
   Car,
   Wifi,
   Flame,
   Check,
-  Calendar,
+  Clock,
   Shield,
-  Heart,
   TrendingDown,
+  Calendar,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 
-export default function CabanaMaderaPage() {
+export default function CabanaFamiliarPage() {
   const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
   const [currentImage, setCurrentImage] = useState(0)
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [isFormVisible, setIsFormVisible] = useState(false)
 
   const announcements = [
-    "🌿 Disfruta de nuestra cabaña familiar",
+    "🌿 Entorno familiar",
     "🏔️ Valle de Calamuchita - Naturaleza pura",
     "🔥 Cabañas equipadas con asador privado",
   ]
 
   const pricing = {
-    originalPrice: 45000,
-    offerPrice: 30000,
-    discount: 33,
-    savings: 15000,
+    originalPrice: 65000,
+    offerPrice: 43000,
+    discount: 34,
+    savings: 22000,
   }
 
   const galleryImages = [
-    { src: "/images/cabana-madera.webp", alt: "Cabaña de Madera - Vista exterior principal" },
-    { src: "/images/nuba1.jpg", alt: "Cabaña de Madera - Galería cubierta" },
-    { src: "/images/living1.jpg", alt: "Cabaña de Madera - Living interior" },
-    { src: "/images/asador.jpg", alt: "Cabaña de Madera - Asador de ladrillo" },
-    { src: "/images/cabania2-canteros.jpg", alt: "Cabaña de Madera - Jardín con canteros" },
-    { src: "/images/cabaniasyparque.jpg", alt: "Cabaña de Madera - Vista del parque" },
+    { src: "/images/cabana-familiar.jpg", alt: "Cabaña Familiar - Vista exterior principal" },
+    { src: "/images/complejo-cabanas.webp", alt: "Cabaña Familiar - Vista del complejo" },
+    { src: "/images/cabana-asador-lena.webp", alt: "Cabaña Familiar - Asador con leñera" },
+    { src: "/images/muebles-exterior.webp", alt: "Cabaña Familiar - Muebles de exterior" },
+    { src: "/images/piscina-montanas.webp", alt: "Cabaña Familiar - Piscina con vista a montañas" },
+    { src: "/images/living-exterior.webp", alt: "Cabaña Familiar - Living exterior" },
   ]
 
   const quickFeatures = [
-    { icon: Users, title: "Máx. 2 personas", subtitle: "Perfecto para parejas" },
+    { icon: Bed, title: "1 Dormitorio", subtitle: "Matrimonial + sofá cama" },
     { icon: Car, title: "Cochera", subtitle: "Cubierta incluida" },
-    { icon: Wifi, title: "Wi-Fi", subtitle: "Gratis de alta velocidad" },
-    { icon: Flame, title: "Asador", subtitle: "Individual de ladrillo" },
+    { icon: Wifi, title: "Wi-Fi", subtitle: "Alta velocidad gratis" },
+    { icon: Flame, title: "Asador", subtitle: "Moderno con parrilla" },
   ]
 
   const features = [
-    "Construcción tradicional en troncos de madera",
-    "Ambiente rústico y acogedor",
-    "Galería cubierta con mobiliario de madera",
-    "Calefacción a gas natural",
-    "Cocina completa equipada",
-    "Entorno natural privilegiado",
-    "Asador de ladrillo individual",
+    "Construcción moderna en piedra",
+    "Diseño contemporáneo y funcional",
+    "Amplio jardín privado",
+    "Aire acondicionado y calefacción",
+    "Cocina completa con electrodomésticos",
+    "Espacios amplios y luminosos",
+    "Asador de ladrillo con parrilla",
     "Cochera cubierta",
-    "Wi-Fi gratuito",
+    "Wi-Fi de alta velocidad",
     "TV LED 32 pulgadas",
-    "Aire acondicionado",
-    "Ropa de cama incluida",
+    "Mobiliario moderno",
+    "Ropa de cama premium",
   ]
 
   const testimonials = [
     {
-      name: "Ana y Roberto",
+      name: "María González",
       rating: 5,
-      comment:
-        "Perfecta para nuestra escapada romántica. El ambiente rústico y la tranquilidad del lugar nos enamoraron.",
-      date: "Hace 1 semana",
+      comment: "Excelente cabaña, muy cómoda y bien equipada. El jardín es hermoso y la ubicación perfecta.",
+      date: "Hace 2 semanas",
     },
     {
-      name: "Laura Martínez",
+      name: "Carlos Rodríguez",
       rating: 5,
-      comment: "Cabaña muy acogedora, ideal para desconectarse. La galería de madera es hermosa para tomar mate.",
-      date: "Hace 3 semanas",
+      comment:
+        "Perfecta para familias. Los niños disfrutaron mucho del espacio exterior y nosotros de la tranquilidad.",
+      date: "Hace 1 mes",
     },
   ]
 
@@ -100,20 +101,11 @@ export default function CabanaMaderaPage() {
     return () => clearInterval(interval)
   }, [])
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("es-AR", {
-      style: "currency",
-      currency: "ARS",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(price)
-  }
-
   // WhatsApp click handler
   const handleWhatsAppClick = () => {
     const phoneNumber = "5493546501444"
     const message =
-      "Hola! Me interesa la Cabaña de Madera de Cabañas NUBA. ¿Podrían brindarme información sobre disponibilidad y tarifas?"
+      "Hola! Me interesa la Cabaña Familiar de Cabañas NUBA. ¿Podrían brindarme información sobre disponibilidad y tarifas?"
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
@@ -129,9 +121,7 @@ export default function CabanaMaderaPage() {
     const guests = formData.get("guests") as string
     const message = formData.get("message") as string
 
-    const whatsappMessage = `🏔️ *RESERVA CABAÑA DE MADERA - NUBA*
-
-💰 *PRECIO POR NOCHE:* ${formatPrice(pricing.offerPrice)} (antes ${formatPrice(pricing.originalPrice)})
+    const whatsappMessage = `🏔️ *RESERVA CABAÑA FAMILIAR - NUBA*
 
 👤 *Nombre:* ${name}
 📧 *Email:* ${email}
@@ -142,7 +132,8 @@ export default function CabanaMaderaPage() {
 ${message}
 
 ---
-🏠 *Cabaña solicitada:* Cabaña de Madera (máx. 2 personas)
+🏠 *Cabaña solicitada:* Cabaña Familiar (2-4 personas)
+💰 *Precio especial:* $${pricing.offerPrice.toLocaleString()} por noche (${pricing.discount}% OFF)
 Enviado desde el sitio web de Cabañas NUBA`
 
     const phoneNumber = "5493546501444"
@@ -156,6 +147,15 @@ Enviado desde el sitio web de Cabañas NUBA`
 
   const prevImage = () => {
     setCurrentImage((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
+  }
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARS",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price)
   }
 
   return (
@@ -262,12 +262,12 @@ Enviado desde el sitio web de Cabañas NUBA`
         </div>
       </header>
 
-      {/* Hero Banner - Cabaña de Madera Specific */}
+      {/* Hero Banner - Cabaña Familiar Specific */}
       <section className="relative w-full">
         <div className="relative w-full cursor-pointer group" onClick={handleWhatsAppClick}>
           <Image
-            src="/images/banner-cabana-familiar.webp"
-            alt="Cabaña de Madera - Vista exterior principal - Haz clic para consultar por WhatsApp"
+            src="/images/banner-cabanas-familiar.webp"
+            alt="Cabaña Familiar - Vista del complejo - Haz clic para consultar por WhatsApp"
             width={1920}
             height={1080}
             className="w-full h-auto object-contain group-hover:brightness-110 transition-all duration-300"
@@ -283,17 +283,17 @@ Enviado desde el sitio web de Cabañas NUBA`
           <div className="max-w-4xl mx-auto">
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-stone-200">
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-montserrat font-extrabold text-stone-900 mb-2">
-                Cabaña de Madera
+                Cabaña Familiar
               </h1>
               <p className="text-stone-600 font-poppins text-sm sm:text-base">
-                Construcción tradicional • Máximo 2 personas • Ambiente rústico
+                Construcción moderna • 2-4 personas • Diseño contemporáneo
               </p>
               <div className="flex items-center mt-3 space-x-4">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
-                  <span className="ml-2 text-sm text-stone-600 font-poppins">4.7 (78 reseñas)</span>
+                  <span className="ml-2 text-sm text-stone-600 font-poppins">4.7 (8 reseñas)</span>
                   <a
                     href="https://g.co/kgs/7UVQvvG"
                     target="_blank"
@@ -310,13 +310,13 @@ Enviado desde el sitio web de Cabañas NUBA`
       </section>
 
       {/* Price Banner */}
-      <section className="bg-amber-50 py-4 border-b border-amber-200">
+      <section className="bg-green-50 py-4 border-b border-green-200">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div>
             <h4 className="font-montserrat font-bold text-stone-800 text-sm sm:text-base">
               Precio por noche: <span className="font-extrabold">{formatPrice(pricing.offerPrice)}</span>
             </h4>
-            <p className="text-amber-700 font-poppins text-xs">
+            <p className="text-green-700 font-poppins text-xs">
               <s>{formatPrice(pricing.originalPrice)}</s>{" "}
               <TrendingDown className="inline-block h-3 w-3 ml-1 text-red-500" />{" "}
               <span className="font-semibold text-red-600">¡Ahorras {formatPrice(pricing.savings)}!</span>
@@ -324,7 +324,7 @@ Enviado desde el sitio web de Cabañas NUBA`
           </div>
           <Button
             onClick={() => setIsFormVisible(true)}
-            className="bg-amber-600 text-white hover:bg-amber-700 px-3 py-2 text-xs sm:px-4 sm:py-2 sm:text-sm rounded-full font-poppins font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            className="bg-green-600 text-white hover:bg-green-700 px-3 py-2 text-xs sm:px-4 sm:py-2 sm:text-sm rounded-full font-poppins font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
           >
             ¡Reserva Ahora!
           </Button>
@@ -337,8 +337,8 @@ Enviado desde el sitio web de Cabañas NUBA`
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {quickFeatures.map((feature, index) => (
               <div key={index} className="flex items-center space-x-3 p-3 bg-stone-50 rounded-xl">
-                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <feature.icon className="h-4 w-4 text-amber-700" />
+                <div className="w-8 h-8 bg-forest-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <feature.icon className="h-4 w-4 text-forest-700" />
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-montserrat font-bold text-stone-900 text-sm truncate">{feature.title}</h3>
@@ -362,7 +362,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   setIsGalleryOpen(true)
                 }}
                 className={`flex-shrink-0 relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                  index === currentImage ? "border-amber-600 ring-2 ring-amber-200" : "border-transparent"
+                  index === currentImage ? "border-forest-600 ring-2 ring-forest-200" : "border-transparent"
                 }`}
               >
                 <Image
@@ -383,14 +383,14 @@ Enviado desde el sitio web de Cabañas NUBA`
           <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Left Column - Details */}
             <div className="lg:col-span-2 space-y-8">
-              {/* Romantic Banner */}
-              <div className="bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200 rounded-2xl p-4 sm:p-6">
+              {/* Urgency Banner */}
+              <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-4 sm:p-6">
                 <div className="flex items-center space-x-3 mb-3">
-                  <Heart className="h-5 w-5 text-pink-600" />
-                  <h3 className="font-montserrat font-bold text-pink-800">¡Perfecta para Parejas!</h3>
+                  <Clock className="h-5 w-5 text-red-600" />
+                  <h3 className="font-montserrat font-bold text-red-800">¡Disponibilidad Limitada!</h3>
                 </div>
-                <p className="text-pink-700 font-poppins text-sm">
-                  Ambiente íntimo y romántico en un entorno natural único. Ideal para escapadas románticas.
+                <p className="text-red-700 font-poppins text-sm">
+                  Solo quedan 3 fechas disponibles este mes. Reserve ahora para asegurar su estadía.
                 </p>
               </div>
 
@@ -399,14 +399,15 @@ Enviado desde el sitio web de Cabañas NUBA`
                 <h2 className="text-xl sm:text-2xl font-montserrat font-extrabold text-stone-900 mb-4">Descripción</h2>
                 <div className="prose prose-stone max-w-none">
                   <p className="text-stone-600 font-poppins leading-relaxed mb-4">
-                    Nuestra Cabaña de Madera ofrece una experiencia auténtica de alojamiento rústico en el corazón del
-                    Valle de Calamuchita. Construida con troncos tradicionales, esta acogedora cabaña combina el encanto
-                    natural de la madera con todas las comodidades modernas necesarias para una estadía perfecta.
+                    Nuestra Cabaña Familiar representa la perfecta combinación entre diseño contemporáneo y comodidad.
+                    Construida con materiales modernos y piedra natural, ofrece espacios amplios y luminosos ideales
+                    para familias de hasta 4 personas que buscan una experiencia de alojamiento superior en el Valle de
+                    Calamuchita.
                   </p>
                   <p className="text-stone-600 font-poppins leading-relaxed">
-                    Con capacidad para hasta 2 personas, es ideal para parejas que buscan desconectarse en un ambiente
-                    natural y tranquilo. La galería cubierta con mobiliario de madera es perfecta para disfrutar de los
-                    atardeceres serranos.
+                    Con un amplio jardín privado y mobiliario moderno, esta cabaña cuenta con todas las comodidades
+                    necesarias para una estadía memorable. Su diseño funcional y elegante la convierte en la opción
+                    perfecta para quienes valoran el confort y el estilo.
                   </p>
                 </div>
               </div>
@@ -435,7 +436,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   {testimonials.map((testimonial, index) => (
                     <div key={index} className="bg-stone-50 rounded-2xl p-4 sm:p-6">
                       <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center">
+                        <div className="w-10 h-10 bg-forest-600 rounded-full flex items-center justify-center">
                           <span className="text-white font-montserrat font-bold text-sm">
                             {testimonial.name.charAt(0)}
                           </span>
@@ -459,21 +460,21 @@ Enviado desde el sitio web de Cabañas NUBA`
               </div>
 
               {/* Location Info */}
-              <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-6">
+              <div className="bg-gradient-to-br from-forest-50 to-forest-100 rounded-2xl p-6">
                 <h2 className="text-xl sm:text-2xl font-montserrat font-extrabold text-stone-900 mb-4">
                   Ubicación Privilegiada
                 </h2>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
-                    <MapPin className="h-5 w-5 text-amber-600" />
+                    <MapPin className="h-5 w-5 text-forest-600" />
                     <span className="text-stone-700 font-poppins">Santa Rosa de Calamuchita, Córdoba</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <MapPin className="h-5 w-5 text-amber-600" />
+                    <MapPin className="h-5 w-5 text-forest-600" />
                     <span className="text-stone-700 font-poppins">A 96 km de Córdoba Capital</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <MapPin className="h-5 w-5 text-amber-600" />
+                    <MapPin className="h-5 w-5 text-forest-600" />
                     <span className="text-stone-700 font-poppins">A 700 metros de la Ruta Provincial nº 5</span>
                   </div>
                 </div>
@@ -484,26 +485,20 @@ Enviado desde el sitio web de Cabañas NUBA`
             <div className="lg:col-span-1">
               <div className="sticky top-24">
                 <Card className="border-0 shadow-2xl overflow-hidden">
-                  <div className="bg-gradient-to-r from-amber-600 to-amber-700 p-4 text-white">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Shield className="h-5 w-5" />
-                      <span className="font-poppins font-semibold text-sm">Reserva Segura</span>
+                  <div className="bg-gradient-to-r from-forest-600 to-forest-700 p-4 text-white">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center space-x-2">
+                        <Shield className="h-5 w-5" />
+                        <span className="font-poppins font-semibold text-sm">Reserva Segura</span>
+                      </div>
+                      <Badge className="bg-red-600 text-white text-xs font-bold">-{pricing.discount}%</Badge>
                     </div>
-                    <h3 className="text-xl font-montserrat font-extrabold">Reservar Cabaña de Madera</h3>
-                    <p className="text-amber-100 font-poppins text-sm">Máximo 2 personas • Ambiente romántico</p>
+                    <h3 className="text-xl font-montserrat font-extrabold">Reservar Cabaña Familiar</h3>
+                    <p className="text-forest-100 font-poppins text-sm">2-4 personas • Disponibilidad limitada</p>
                   </div>
 
                   <CardContent className="p-6">
-                    <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-6">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <Calendar className="h-4 w-4 text-yellow-600" />
-                        <span className="font-poppins font-semibold text-yellow-800 text-sm">Oferta Especial</span>
-                      </div>
-                      <p className="text-yellow-700 font-poppins text-sm">
-                        3 noches al precio de 2 - Válido hasta el 15 de agosto
-                      </p>
-                    </div>
-
+                    {/* Pricing Display */}
                     <div className="mb-4">
                       <h4 className="font-montserrat font-bold text-stone-800 text-sm sm:text-base">
                         Precio por noche: <span className="font-extrabold">{formatPrice(pricing.offerPrice)}</span>
@@ -512,6 +507,16 @@ Enviado desde el sitio web de Cabañas NUBA`
                         <s>{formatPrice(pricing.originalPrice)}</s>{" "}
                         <TrendingDown className="inline-block h-3 w-3 ml-1 text-red-500" />{" "}
                         <span className="font-semibold text-red-600">¡Ahorras {formatPrice(pricing.savings)}!</span>
+                      </p>
+                    </div>
+
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-6">
+                      <div className="flex items-center space-x-2 mb-2">
+                        <Calendar className="h-4 w-4 text-yellow-600" />
+                        <span className="font-poppins font-semibold text-yellow-800 text-sm">Oferta Especial</span>
+                      </div>
+                      <p className="text-yellow-700 font-poppins text-sm">
+                        3 noches al precio de 2 - Válido hasta el 15 de agosto
                       </p>
                     </div>
 
@@ -525,7 +530,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                           id="name"
                           name="name"
                           required
-                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-200 font-poppins text-sm transition-all duration-300"
+                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-200 font-poppins text-sm transition-all duration-300"
                           placeholder="Su nombre completo"
                         />
                       </div>
@@ -539,7 +544,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                           id="email"
                           name="email"
                           required
-                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-200 font-poppins text-sm transition-all duration-300"
+                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-200 font-poppins text-sm transition-all duration-300"
                           placeholder="su@email.com"
                         />
                       </div>
@@ -553,7 +558,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                           id="dates"
                           name="dates"
                           required
-                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-200 font-poppins text-sm transition-all duration-300"
+                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-200 font-poppins text-sm transition-all duration-300"
                           placeholder="Ej: 15-20 de enero 2024"
                         />
                       </div>
@@ -569,11 +574,12 @@ Enviado desde el sitio web de Cabañas NUBA`
                           id="guests"
                           name="guests"
                           required
-                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-200 font-poppins text-sm transition-all duration-300"
+                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-200 font-poppins text-sm transition-all duration-300"
                         >
                           <option value="">Seleccionar...</option>
-                          <option value="1 persona">1 persona</option>
                           <option value="2 personas">2 personas</option>
+                          <option value="3 personas">3 personas</option>
+                          <option value="4 personas">4 personas</option>
                         </select>
                       </div>
 
@@ -588,7 +594,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                           id="message"
                           name="message"
                           rows={3}
-                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-200 resize-none font-poppins text-sm transition-all duration-300"
+                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-200 resize-none font-poppins text-sm transition-all duration-300"
                           placeholder="Comentarios adicionales, consultas especiales..."
                         ></textarea>
                       </div>
