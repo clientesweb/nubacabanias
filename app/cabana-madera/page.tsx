@@ -266,7 +266,7 @@ Enviado desde el sitio web de Cabañas NUBA`
       <section className="relative w-full">
         <div className="relative w-full cursor-pointer group" onClick={handleWhatsAppClick}>
           <Image
-            src="/images/banmer-cabana-madera.webp"
+            src="/images/banner-cabana-madera.webp"
             alt="Cabaña de Madera - Vista exterior principal - Haz clic para consultar por WhatsApp"
             width={1920}
             height={1080}
