@@ -2,7 +2,21 @@
 
 import type React from "react"
 
-import { MapPin, Wifi, Car, Users, Phone, Mail, MessageCircle, Instagram, Facebook, Tag } from "lucide-react"
+import {
+  MapPin,
+  Wifi,
+  Car,
+  Users,
+  Phone,
+  Mail,
+  MessageCircle,
+  Instagram,
+  Facebook,
+  Tag,
+  Camera,
+  ArrowRight,
+  ImageIcon,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -15,7 +29,7 @@ export default function CabanasNybaPage() {
   // const [currentSlide, setCurrentSlide] = useState(0] // Removed
 
   const announcements = [
-    "🌿 20% OFF en estadías de 3+ noches",
+    "🌿 Precios especiales temporada de invierno",
     "🏔️ Valle de Calamuchita - Naturaleza pura",
     "🔥 Cabañas equipadas con asador privado",
   ]
@@ -65,6 +79,15 @@ export default function CabanasNybaPage() {
         "Ideal para familias",
       ],
     },
+  ]
+
+  const galleryPreview = [
+    { src: "/images/bienvenidos-valle.webp", alt: "Vista panorámica del valle" },
+    { src: "/images/entrada-nuba-sign.webp", alt: "Entrada principal del complejo" },
+    { src: "/images/piscina-montanas.webp", alt: "Piscina con vista a las montañas" },
+    { src: "/images/cabana-exterior-1.webp", alt: "Cabaña con jardines paisajísticos" },
+    { src: "/images/complejo-cabanas.webp", alt: "Vista aérea del complejo" },
+    { src: "/images/muebles-exterior.webp", alt: "Área de estar exterior" },
   ]
 
   // Announcement rotation
@@ -341,6 +364,70 @@ Enviado desde el sitio web de Cabañas NUBA`
         </div>
       </section>
 
+      {/* Gallery Preview Section */}
+      <section className="bg-gradient-to-br from-stone-100 to-stone-200 py-16 sm:py-20 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-stone-900 mb-3 sm:mb-4">
+                GALERÍA DE IMÁGENES
+              </h2>
+              <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-poppins font-medium">
+                Descubre la belleza de nuestras cabañas y el entorno natural del Valle de Calamuchita
+              </p>
+            </div>
+
+            {/* Gallery Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-12">
+              {galleryPreview.map((image, index) => (
+                <div
+                  key={index}
+                  className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <Image
+                    src={image.src || "/placeholder.svg"}
+                    alt={image.alt}
+                    width={400}
+                    height={300}
+                    className="w-full h-32 sm:h-40 lg:h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full">
+                      <ImageIcon className="h-3 w-3 sm:h-4 sm:w-4 text-stone-700" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-white/50 max-w-2xl mx-auto">
+                <div className="flex items-center justify-center space-x-3 mb-4">
+                  <Camera className="h-6 w-6 text-forest-600" />
+                  <h3 className="text-xl sm:text-2xl font-montserrat font-extrabold text-stone-900">
+                    Ver Galería Completa
+                  </h3>
+                </div>
+                <p className="text-stone-600 font-poppins mb-6 text-sm sm:text-base">
+                  Explora todas nuestras imágenes organizadas por categorías: exteriores, interiores, asadores, piscina
+                  y paisajes del valle.
+                </p>
+                <Link href="/galeria">
+                  <Button className="bg-gradient-to-r from-forest-600 to-forest-700 text-white hover:from-forest-700 hover:to-forest-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-poppins font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 mx-auto">
+                    <Camera className="h-4 w-4 sm:h-5 sm:w-5" />
+                    <span>Explorar Galería</span>
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Location Section */}
       <section id="ubicacion" className="bg-stone-50 py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
@@ -423,64 +510,166 @@ Enviado desde el sitio web de Cabañas NUBA`
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - Improved */}
       <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-stone-900 mb-12 sm:mb-16">
-              SERVICIOS
-            </h2>
-
-            <div className="grid sm:grid-cols-3 gap-6 sm:gap-8">
-              <div className="text-center">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-forest-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <Car className="h-5 w-5 sm:h-6 sm:w-6 text-forest-700" />
-                </div>
-                <h3 className="text-base sm:text-lg font-montserrat font-extrabold mb-2 text-stone-900">
-                  Cochera y Asador
-                </h3>
-                <p className="text-stone-600 text-sm font-poppins">Cochera cubierta y asador individual</p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-forest-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <Wifi className="h-5 w-5 sm:h-6 sm:w-6 text-forest-700" />
-                </div>
-                <h3 className="text-base sm:text-lg font-montserrat font-extrabold mb-2 text-stone-900">
-                  Conectividad
-                </h3>
-                <p className="text-stone-600 text-sm font-poppins">Wi-Fi libre y TV LED 32" incluido</p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-forest-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <Users className="h-5 w-5 sm:h-6 sm:w-6 text-forest-700" />
-                </div>
-                <h3 className="text-base sm:text-lg font-montserrat font-extrabold mb-2 text-stone-900">
-                  Ambiente Familiar
-                </h3>
-                <p className="text-stone-600 text-sm font-poppins">Espacio exclusivamente familiar</p>
-              </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-stone-900 mb-3 sm:mb-4">
+                SERVICIOS Y COMODIDADES
+              </h2>
+              <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-poppins font-medium">
+                Todo lo que necesitas para una estadía perfecta en el Valle de Calamuchita
+              </p>
             </div>
 
-            <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-stone-50 rounded-2xl">
-              <h3 className="text-lg sm:text-xl font-montserrat font-extrabold mb-4 sm:mb-6 text-stone-900">
-                COMODIDADES
+            {/* Main Services */}
+            <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+              <Card className="group border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-forest-50 to-forest-100">
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-forest-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Car className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-montserrat font-extrabold mb-3 text-stone-900">
+                    Cochera y Asador
+                  </h3>
+                  <p className="text-stone-600 font-poppins text-sm sm:text-base leading-relaxed">
+                    Cochera cubierta para tu vehículo y asador individual de ladrillo para disfrutar al aire libre
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="group border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-blue-50 to-blue-100">
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Wifi className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-montserrat font-extrabold mb-3 text-stone-900">
+                    Conectividad Total
+                  </h3>
+                  <p className="text-stone-600 font-poppins text-sm sm:text-base leading-relaxed">
+                    Wi-Fi gratuito de alta velocidad y TV LED 32" para tu entretenimiento y conectividad
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="group border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-amber-50 to-amber-100">
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Users className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-montserrat font-extrabold mb-3 text-stone-900">
+                    Ambiente Familiar
+                  </h3>
+                  <p className="text-stone-600 font-poppins text-sm sm:text-base leading-relaxed">
+                    Espacio exclusivamente familiar en un entorno seguro y tranquilo para toda la familia
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Detailed Amenities */}
+            <div className="bg-gradient-to-br from-stone-50 to-stone-100 rounded-3xl p-6 sm:p-8 lg:p-12 shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-montserrat font-extrabold mb-6 sm:mb-8 text-stone-900 text-center">
+                COMODIDADES INCLUIDAS
               </h3>
-              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 text-left">
-                <ul className="space-y-2 text-stone-700 text-sm font-poppins">
-                  <li>• Cocina completa con heladera</li>
-                  <li>• Aire acondicionado</li>
-                  <li>• Calefacción a gas natural</li>
-                  <li>• Ropa de cama incluida</li>
-                </ul>
-                <ul className="space-y-2 text-stone-700 text-sm font-poppins">
-                  <li>• Parque privado con mesas</li>
-                  <li>• Vajilla completa</li>
-                  <li>• Seguridad y matafuegos</li>
-                  <li>• Servicio de limpieza (opcional)</li>
-                  <li>• Mascotas (consultar)</li>
-                </ul>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                {/* Column 1 */}
+                <div className="space-y-4">
+                  <h4 className="font-montserrat font-bold text-forest-700 text-sm sm:text-base mb-3 flex items-center">
+                    <span className="w-2 h-2 bg-forest-600 rounded-full mr-2"></span>
+                    COCINA Y COMEDOR
+                  </h4>
+                  <ul className="space-y-2 text-stone-700 text-sm font-poppins">
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Cocina completa equipada
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Heladera con freezer
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Vajilla completa
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Mesa y sillas
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Column 2 */}
+                <div className="space-y-4">
+                  <h4 className="font-montserrat font-bold text-forest-700 text-sm sm:text-base mb-3 flex items-center">
+                    <span className="w-2 h-2 bg-forest-600 rounded-full mr-2"></span>
+                    CLIMATIZACIÓN
+                  </h4>
+                  <ul className="space-y-2 text-stone-700 text-sm font-poppins">
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Aire acondicionado
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Calefacción a gas natural
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Ventiladores de techo
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Column 3 */}
+                <div className="space-y-4">
+                  <h4 className="font-montserrat font-bold text-forest-700 text-sm sm:text-base mb-3 flex items-center">
+                    <span className="w-2 h-2 bg-forest-600 rounded-full mr-2"></span>
+                    EXTERIOR
+                  </h4>
+                  <ul className="space-y-2 text-stone-700 text-sm font-poppins">
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Parque privado con mesas
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Asador individual
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Cochera cubierta
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Column 4 */}
+                <div className="space-y-4">
+                  <h4 className="font-montserrat font-bold text-forest-700 text-sm sm:text-base mb-3 flex items-center">
+                    <span className="w-2 h-2 bg-forest-600 rounded-full mr-2"></span>
+                    SERVICIOS
+                  </h4>
+                  <ul className="space-y-2 text-stone-700 text-sm font-poppins">
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Ropa de cama incluida
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Limpieza (opcional)
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Seguridad y matafuegos
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      Mascotas (consultar)
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
