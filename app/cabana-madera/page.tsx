@@ -14,7 +14,6 @@ import {
   Car,
   Wifi,
   Flame,
-  Home,
   Check,
   Calendar,
   Shield,
@@ -23,7 +22,6 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import Link from "next/link"
@@ -35,7 +33,7 @@ export default function CabanaMaderaPage() {
   const [isFormVisible, setIsFormVisible] = useState(false)
 
   const announcements = [
-    "🌿 20% OFF en estadías de 3+ noches",
+    "🌿 Conocé nuestra cabaña de madera",
     "🏔️ Valle de Calamuchita - Naturaleza pura",
     "🔥 Cabañas equipadas con asador privado",
   ]
@@ -54,12 +52,6 @@ export default function CabanaMaderaPage() {
     { src: "/images/asador.jpg", alt: "Cabaña de Madera - Asador de ladrillo" },
     { src: "/images/cabania2-canteros.jpg", alt: "Cabaña de Madera - Jardín con canteros" },
     { src: "/images/cabaniasyparque.jpg", alt: "Cabaña de Madera - Vista del parque" },
-  ]
-
-  const highlights = [
-    { icon: Heart, text: "Ideal para parejas", color: "bg-pink-100 text-pink-800" },
-    { icon: Home, text: "Construcción tradicional", color: "bg-amber-100 text-amber-800" },
-    { icon: Star, text: "Ambiente rústico", color: "bg-green-100 text-green-800" },
   ]
 
   const quickFeatures = [
@@ -274,7 +266,7 @@ Enviado desde el sitio web de Cabañas NUBA`
       <section className="relative w-full">
         <div className="relative w-full cursor-pointer group" onClick={handleWhatsAppClick}>
           <Image
-            src="/images/banner-cabana-madera.webp"
+            src="/images/banmer-cabana-madera.webp"
             alt="Cabaña de Madera - Vista exterior principal - Haz clic para consultar por WhatsApp"
             width={1920}
             height={1080}
@@ -290,15 +282,6 @@ Enviado desde el sitio web de Cabañas NUBA`
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-stone-200">
-              <div className="flex flex-wrap gap-2 mb-3">
-                {highlights.map((highlight, index) => (
-                  <Badge key={index} className={`${highlight.color} border-0 text-xs font-medium`}>
-                    <highlight.icon className="h-3 w-3 mr-1" />
-                    {highlight.text}
-                  </Badge>
-                ))}
-                <Badge className="bg-red-600 text-white border-0 text-xs font-bold">-{pricing.discount}% OFF</Badge>
-              </div>
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-montserrat font-extrabold text-stone-900 mb-2">
                 Cabaña de Madera
               </h1>
@@ -310,7 +293,15 @@ Enviado desde el sitio web de Cabañas NUBA`
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
-                  <span className="ml-2 text-sm text-stone-600 font-poppins">5.0 (8 reseñas)</span>
+                  <span className="ml-2 text-sm text-stone-600 font-poppins">4.7 (34 reseñas)</span>
+                  <a
+                    href="https://g.co/kgs/7UVQvvG"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-2 text-xs text-blue-600 hover:text-blue-800 font-poppins underline transition-colors"
+                  >
+                    Ver todas
+                  </a>
                 </div>
               </div>
             </div>
