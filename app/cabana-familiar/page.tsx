@@ -266,12 +266,7 @@ Enviado desde el sitio web de Cabañas NUBA`
               />
             </Link>
           </div>
-          <Button
-            onClick={() => setIsFormVisible(true)}
-            className="bg-green-600 text-white hover:bg-green-700 px-3 py-2 text-xs sm:px-4 sm:py-2 sm:text-sm lg:px-6 lg:py-2 lg:text-base rounded-full font-poppins font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Reservar Ahora
-          </Button>
+          <div className="w-8"></div>
         </div>
       </header>
 
@@ -315,7 +310,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
-                  <span className="ml-2 text-sm text-stone-600 font-poppins">5.0 (64 reseñas)</span>
+                  <span className="ml-2 text-sm text-stone-600 font-poppins">5.0 (12 reseñas)</span>
                 </div>
               </div>
             </div>
