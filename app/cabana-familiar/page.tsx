@@ -266,7 +266,7 @@ Enviado desde el sitio web de Cabañas NUBA`
       <section className="relative w-full">
         <div className="relative w-full cursor-pointer group" onClick={handleWhatsAppClick}>
           <Image
-            src="/images/banner-cabanas-familiar.webp"
+            src="/images/banner-cabana-familiar.webp"
             alt="Cabaña Familiar - Vista del complejo - Haz clic para consultar por WhatsApp"
             width={1920}
             height={1080}
