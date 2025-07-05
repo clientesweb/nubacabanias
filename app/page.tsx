@@ -12,7 +12,6 @@ import {
   MessageCircle,
   Instagram,
   Facebook,
-  Tag,
   Camera,
   ArrowRight,
   ImageIcon,
@@ -26,50 +25,19 @@ import Link from "next/link"
 
 export default function CabanasNybaPage() {
   const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
-  // const [currentSlide, setCurrentSlide] = useState(0] // Removed
 
   const announcements = [
-    "🌿 Precios especiales temporada de invierno",
+    "🌿 Oferta especial: 5 noches al precio de 4",
     "🏔️ Valle de Calamuchita - Naturaleza pura",
     "🔥 Cabañas equipadas con asador privado",
   ]
 
-  // const slides = [ // Removed
-  //   { src: "/images/bienvenidos-valle.webp", alt: "Bienvenidos a Cabañas Nuba - Vista del valle" },
-  //   { src: "/images/entrada-nuba-sign.webp", alt: "Entrada principal con cartel Nuba Cabañas" },
-  //   { src: "/images/piscina-montanas.webp", alt: "Piscina con vista a las montañas" },
-  //   { src: "/images/cabana-exterior-1.webp", alt: "Cabaña exterior con jardines paisajísticos" },
-  //   { src: "/images/complejo-cabanas.webp", alt: "Vista general del complejo de cabañas" },
-  //   { src: "/images/cabana-asador-lena.webp", alt: "Cabaña con asador de ladrillo y leñera" },
-  //   { src: "/images/muebles-exterior.webp", alt: "Área de estar exterior con muebles de madera" },
-  // ]
-
   const cabanas = [
-    {
-      id: 1,
-      name: "Cabaña de Madera",
-      capacity: "Máximo 2 personas",
-      image: "/images/cabana-madera.webp",
-      originalPrice: 45000,
-      offerPrice: 30000,
-      discount: 33,
-      features: [
-        "Construcción tradicional en troncos",
-        "Ambiente rústico auténtico",
-        "Galería cubierta con mobiliario",
-        "Calefacción a gas",
-        "Cocina completa",
-        "Entorno natural",
-      ],
-    },
     {
       id: 2,
       name: "Cabaña Familiar",
       capacity: "2-4 personas",
       image: "/images/cabana-familiar.jpg",
-      originalPrice: 65000,
-      offerPrice: 43000,
-      discount: 34,
       features: [
         "Construcción moderna en piedra",
         "Amplio jardín privado",
@@ -77,6 +45,20 @@ export default function CabanasNybaPage() {
         "Aire acondicionado",
         "Espacios amplios",
         "Ideal para familias",
+      ],
+    },
+    {
+      id: 1,
+      name: "Cabaña de Madera",
+      capacity: "Máximo 2 personas",
+      image: "/images/cabana-madera-exterior-1.webp",
+      features: [
+        "Construcción tradicional en troncos",
+        "Ambiente rústico auténtico",
+        "Galería cubierta con mobiliario",
+        "Calefacción a gas",
+        "Cocina completa",
+        "Entorno natural",
       ],
     },
   ]
@@ -97,14 +79,6 @@ export default function CabanasNybaPage() {
     }, 4000)
     return () => clearInterval(interval)
   }, [])
-
-  // Slideshow rotation // Removed
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentSlide((prev) => (prev + 1) % slides.length)
-  //   }, 5000)
-  //   return () => clearInterval(interval)
-  // }, [])
 
   // WhatsApp click handler
   const handleWhatsAppClick = () => {
@@ -140,15 +114,6 @@ Enviado desde el sitio web de Cabañas NUBA`
     const phoneNumber = "5493546501444"
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(whatsappUrl, "_blank")
-  }
-
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("es-AR", {
-      style: "currency",
-      currency: "ARS",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(price)
   }
 
   return (
@@ -261,14 +226,14 @@ Enviado desde el sitio web de Cabañas NUBA`
             onClick={() => {
               const phoneNumber = "5493546501444"
               const message =
-                "🎉 ¡Hola! Me interesa la promoción de invierno: 3 noches al precio de 2 en Cabañas NUBA (válida del 1 de julio al 15 de agosto). ¿Podrían brindarme más información sobre esta oferta especial?"
+                "🎉 ¡Hola! Me interesa la promoción especial: 5 noches al precio de 4 en Cabañas NUBA. ¿Podrían brindarme más información sobre esta oferta especial?"
               const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
               window.open(whatsappUrl, "_blank")
             }}
           >
             <Image
               src="/images/banner-invierno-nuba-nuevo.webp"
-              alt="Promoción de invierno - 3 noches al precio de 2 - Válida del 1 de julio al 15 de agosto - Haz clic para consultar por WhatsApp"
+              alt="Promoción especial - 5 noches al precio de 4 - Haz clic para consultar por WhatsApp"
               width={1920}
               height={400}
               className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
@@ -288,7 +253,7 @@ Enviado desde el sitio web de Cabañas NUBA`
               NUESTRAS CABAÑAS
             </h2>
             <p className="text-base sm:text-lg text-stone-600 max-w-xl mx-auto font-poppins font-medium px-4">
-              Espacios únicos diseñados para su descanso con precios especiales
+              Espacios únicos diseñados para su descanso y comodidad
             </p>
           </div>
 
@@ -298,11 +263,9 @@ Enviado desde el sitio web de Cabañas NUBA`
                 key={cabana.id}
                 className="group overflow-hidden border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300 relative"
               >
-                {/* Discount Badge */}
+                {/* Special Offer Badge */}
                 <div className="absolute top-4 right-4 z-10">
-                  <Badge className="bg-red-600 text-white border-0 px-3 py-1 text-sm font-bold shadow-lg">
-                    -{cabana.discount}%
-                  </Badge>
+                  <Badge className="bg-green-600 text-white border-0 px-3 py-1 text-sm font-bold shadow-lg">5x4</Badge>
                 </div>
 
                 <div className="relative overflow-hidden">
@@ -321,26 +284,16 @@ Enviado desde el sitio web de Cabañas NUBA`
                     <span className="text-sm text-stone-500 font-poppins font-medium">{cabana.capacity}</span>
                   </div>
 
-                  {/* Pricing Section */}
+                  {/* Special Offer Section */}
                   <div className="mb-4 p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-2">
-                        <Tag className="h-4 w-4 text-green-600" />
-                        <span className="text-green-800 font-poppins font-semibold text-sm">Precio Especial</span>
+                        <span className="text-green-800 font-poppins font-semibold text-sm">Oferta Especial</span>
                       </div>
-                      <Badge className="bg-green-600 text-white text-xs">3x2</Badge>
+                      <Badge className="bg-green-600 text-white text-xs">5x4</Badge>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <span className="text-stone-500 line-through font-poppins text-sm">
-                        {formatPrice(cabana.originalPrice)}
-                      </span>
-                      <span className="text-green-700 font-montserrat font-extrabold text-xl">
-                        {formatPrice(cabana.offerPrice)}
-                      </span>
-                      <span className="text-green-600 font-poppins text-xs">por noche</span>
-                    </div>
-                    <p className="text-green-700 font-poppins text-xs mt-1">
-                      *Válido hasta el 15 de agosto - 3 noches al precio de 2
+                    <p className="text-green-700 font-poppins text-sm font-medium">
+                      5 noches al precio de 4 - ¡Aprovecha esta oportunidad única!
                     </p>
                   </div>
 
@@ -360,6 +313,33 @@ Enviado desde el sitio web de Cabañas NUBA`
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Promotional Banner */}
+      <section className="bg-white py-0">
+        <div className="w-full">
+          <div
+            className="relative overflow-hidden cursor-pointer group"
+            onClick={() => {
+              const phoneNumber = "5493546501444"
+              const message =
+                "🎉 ¡Hola! Me interesa la promoción especial: 5 noches al precio de 4 en Cabañas NUBA. ¿Podrían brindarme más información sobre esta oferta especial?"
+              const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+              window.open(whatsappUrl, "_blank")
+            }}
+          >
+            <Image
+              src="/images/banner-invierno-nuba-nuevo.webp"
+              alt="Promoción especial - 5 noches al precio de 4 - Haz clic para consultar por WhatsApp"
+              width={1920}
+              height={400}
+              className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
           </div>
         </div>
       </section>
