@@ -51,7 +51,7 @@ export default function CabanasNybaPage() {
       id: 1,
       name: "Cabaña de Madera",
       capacity: "Máximo 2 personas",
-      image: "/images/cabana-madera-exterior-1.webp",
+      image: "/images/cabana-madera-galeria.webp",
       features: [
         "Construcción tradicional en troncos",
         "Ambiente rústico auténtico",
@@ -836,7 +836,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                 alt="Cabañas NUBA"
                 width={120}
                 height={60}
-                className="h-8 sm:h-10 w-auto filter brightness-0 invert opacity-70"
+                className="h-8 sm:h-10 lg:h-12 w-auto filter brightness-0 invert opacity-70"
               />
             </div>
             <div className="text-center md:text-right">
