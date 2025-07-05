@@ -38,12 +38,22 @@ export default function CabanaFamiliarPage() {
   ]
 
   const galleryImages = [
-    { src: "/images/cabana-familiar.jpg", alt: "Cabaña Familiar - Vista exterior principal" },
-    { src: "/images/complejo-cabanas.webp", alt: "Cabaña Familiar - Vista del complejo" },
-    { src: "/images/cabana-asador-lena.webp", alt: "Cabaña Familiar - Asador con leñera" },
-    { src: "/images/muebles-exterior.webp", alt: "Cabaña Familiar - Muebles de exterior" },
-    { src: "/images/piscina-montanas.webp", alt: "Cabaña Familiar - Piscina con vista a montañas" },
-    { src: "/images/living-exterior.webp", alt: "Cabaña Familiar - Living exterior" },
+    { src: "/images/cabana-familiar-exterior.jpg", alt: "Cabaña Familiar - Vista exterior con jardín paisajístico" },
+    {
+      src: "/images/cabana-familiar-dormitorio-1.jpg",
+      alt: "Cabaña Familiar - Dormitorio principal con vigas de madera",
+    },
+    { src: "/images/cabana-familiar-cocina-comedor.jpg", alt: "Cabaña Familiar - Cocina y comedor integrados" },
+    { src: "/images/cabana-familiar-living-comedor.jpg", alt: "Cabaña Familiar - Living comedor con sofá cama" },
+    { src: "/images/cabana-familiar-dormitorio-bano.jpg", alt: "Cabaña Familiar - Dormitorio y baño moderno" },
+    { src: "/images/cabana-familiar-cocina-completa.jpg", alt: "Cabaña Familiar - Cocina completa equipada" },
+    {
+      src: "/images/cabana-familiar-dormitorio-principal.jpg",
+      alt: "Cabaña Familiar - Dormitorio con ventanas amplias",
+    },
+    { src: "/images/cabana-familiar-suite-bano.jpg", alt: "Cabaña Familiar - Suite con baño privado" },
+    { src: "/images/cabana-familiar-piscina.jpg", alt: "Cabaña Familiar - Acceso a piscina del complejo" },
+    { src: "/images/cabana-familiar-dormitorio-2.jpg", alt: "Cabaña Familiar - Dormitorio con cabecero de madera" },
   ]
 
   const quickFeatures = [
@@ -57,6 +67,7 @@ export default function CabanaFamiliarPage() {
     "Construcción moderna en piedra",
     "Diseño contemporáneo y funcional",
     "Amplio jardín privado",
+    "Check-in: 10:00 AM - Check-out: 13:00 HS",
     "Aire acondicionado y calefacción",
     "Cocina completa con electrodomésticos",
     "Espacios amplios y luminosos",
@@ -66,6 +77,12 @@ export default function CabanaFamiliarPage() {
     "TV LED 32 pulgadas",
     "Mobiliario moderno",
     "Ropa de cama premium",
+    "Baño moderno con ducha",
+    "Heladera con freezer",
+    "Microondas y utensilios completos",
+    "Vigas de madera a la vista",
+    "Pisos de cerámica",
+    "Acceso a piscina del complejo",
   ]
 
   const testimonials = [
@@ -101,14 +118,14 @@ export default function CabanaFamiliarPage() {
     window.open(whatsappUrl, "_blank")
   }
 
-  // Contact form handler
   const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
 
     const name = formData.get("name") as string
     const email = formData.get("email") as string
-    const dates = formData.get("dates") as string
+    const checkin = formData.get("checkin") as string
+    const checkout = formData.get("checkout") as string
     const guests = formData.get("guests") as string
     const message = formData.get("message") as string
 
@@ -116,7 +133,8 @@ export default function CabanaFamiliarPage() {
 
 👤 *Nombre:* ${name}
 📧 *Email:* ${email}
-📅 *Fechas:* ${dates}
+📅 *Check-in:* ${checkin} (10:00 AM)
+📅 *Check-out:* ${checkout} (13:00 HS)
 👥 *Huéspedes:* ${guests}
 
 💬 *Mensaje:*
@@ -248,8 +266,8 @@ Enviado desde el sitio web de Cabañas NUBA`
       <section className="relative w-full">
         <div className="relative w-full cursor-pointer group" onClick={handleWhatsAppClick}>
           <Image
-            src="/images/complejo-cabanas.webp"
-            alt="Cabaña Familiar - Vista del complejo - Haz clic para consultar por WhatsApp"
+            src="/images/banner-cabana-familiar.webp"
+            alt="¡Te Esperamos! Cabaña Familiar - Haz clic para consultar por WhatsApp"
             width={1920}
             height={1080}
             className="w-full h-auto object-contain group-hover:brightness-110 transition-all duration-300"
@@ -275,7 +293,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
-                  <span className="ml-2 text-sm text-stone-600 font-poppins">4.7 (8 reseñas)</span>
+                  <span className="ml-2 text-sm text-stone-600 font-poppins">4.7 (79 reseñas)</span>
                   <a
                     href="https://g.co/kgs/7UVQvvG"
                     target="_blank"
@@ -379,9 +397,9 @@ Enviado desde el sitio web de Cabañas NUBA`
                     Calamuchita.
                   </p>
                   <p className="text-stone-600 font-poppins leading-relaxed">
-                    Con un amplio jardín privado y mobiliario moderno, esta cabaña cuenta con todas las comodidades
-                    necesarias para una estadía memorable. Su diseño funcional y elegante la convierte en la opción
-                    perfecta para quienes valoran el confort y el estilo.
+                    Con hermosas vigas de madera a la vista, paredes de ladrillo blanco y pisos de cerámica, esta cabaña
+                    cuenta con todas las comodidades necesarias para una estadía memorable. Su diseño funcional incluye
+                    cocina completa, baño moderno con ducha, y acceso a la piscina del complejo.
                   </p>
                 </div>
               </div>
@@ -510,18 +528,37 @@ Enviado desde el sitio web de Cabañas NUBA`
                         />
                       </div>
 
-                      <div>
-                        <label htmlFor="dates" className="block text-sm font-poppins font-semibold mb-2 text-stone-700">
-                          Fechas de estadía *
-                        </label>
-                        <input
-                          type="text"
-                          id="dates"
-                          name="dates"
-                          required
-                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-200 font-poppins text-sm transition-all duration-300"
-                          placeholder="Ej: 15-20 de enero 2024"
-                        />
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label
+                            htmlFor="checkin"
+                            className="block text-sm font-poppins font-semibold mb-2 text-stone-700"
+                          >
+                            Fecha de entrada *
+                          </label>
+                          <input
+                            type="date"
+                            id="checkin"
+                            name="checkin"
+                            required
+                            className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-200 font-poppins text-sm transition-all duration-300"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="checkout"
+                            className="block text-sm font-poppins font-semibold mb-2 text-stone-700"
+                          >
+                            Fecha de salida *
+                          </label>
+                          <input
+                            type="date"
+                            id="checkout"
+                            name="checkout"
+                            required
+                            className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-200 font-poppins text-sm transition-all duration-300"
+                          />
+                        </div>
                       </div>
 
                       <div>
