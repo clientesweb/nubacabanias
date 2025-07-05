@@ -59,6 +59,7 @@ export default function CabanaMaderaPage() {
     "Construcción tradicional en troncos de madera",
     "Ambiente rústico y acogedor",
     "Galería cubierta con mobiliario de madera",
+    "Check-in: 10:00 AM - Check-out: 13:00 HS",
     "Calefacción a gas natural",
     "Cocina completa equipada",
     "Entorno natural privilegiado",
@@ -103,14 +104,14 @@ export default function CabanaMaderaPage() {
     window.open(whatsappUrl, "_blank")
   }
 
-  // Contact form handler
   const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
 
     const name = formData.get("name") as string
     const email = formData.get("email") as string
-    const dates = formData.get("dates") as string
+    const checkin = formData.get("checkin") as string
+    const checkout = formData.get("checkout") as string
     const guests = formData.get("guests") as string
     const message = formData.get("message") as string
 
@@ -118,7 +119,8 @@ export default function CabanaMaderaPage() {
 
 👤 *Nombre:* ${name}
 📧 *Email:* ${email}
-📅 *Fechas:* ${dates}
+📅 *Check-in:* ${checkin} (10:00 AM)
+📅 *Check-out:* ${checkout} (13:00 HS)
 👥 *Huéspedes:* ${guests}
 
 💬 *Mensaje:*
@@ -250,8 +252,8 @@ Enviado desde el sitio web de Cabañas NUBA`
       <section className="relative w-full">
         <div className="relative w-full cursor-pointer group" onClick={handleWhatsAppClick}>
           <Image
-            src="/images/cabana-madera-exterior-1.webp"
-            alt="Cabaña de Madera - Vista exterior principal - Haz clic para consultar por WhatsApp"
+            src="/images/banner-cabana-madera.webp"
+            alt="¡Descubrí Nuestra Cabaña de Madera! - Haz clic para consultar por WhatsApp"
             width={1920}
             height={1080}
             className="w-full h-auto object-contain group-hover:brightness-110 transition-all duration-300"
@@ -277,7 +279,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
-                  <span className="ml-2 text-sm text-stone-600 font-poppins">4.7 (8 reseñas)</span>
+                  <span className="ml-2 text-sm text-stone-600 font-poppins">4.7 (34 reseñas)</span>
                   <a
                     href="https://g.co/kgs/7UVQvvG"
                     target="_blank"
@@ -509,18 +511,37 @@ Enviado desde el sitio web de Cabañas NUBA`
                         />
                       </div>
 
-                      <div>
-                        <label htmlFor="dates" className="block text-sm font-poppins font-semibold mb-2 text-stone-700">
-                          Fechas de estadía *
-                        </label>
-                        <input
-                          type="text"
-                          id="dates"
-                          name="dates"
-                          required
-                          className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-200 font-poppins text-sm transition-all duration-300"
-                          placeholder="Ej: 15-20 de enero 2024"
-                        />
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label
+                            htmlFor="checkin"
+                            className="block text-sm font-poppins font-semibold mb-2 text-stone-700"
+                          >
+                            Fecha de entrada *
+                          </label>
+                          <input
+                            type="date"
+                            id="checkin"
+                            name="checkin"
+                            required
+                            className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-200 font-poppins text-sm transition-all duration-300"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="checkout"
+                            className="block text-sm font-poppins font-semibold mb-2 text-stone-700"
+                          >
+                            Fecha de salida *
+                          </label>
+                          <input
+                            type="date"
+                            id="checkout"
+                            name="checkout"
+                            required
+                            className="w-full px-4 py-3 border border-stone-300 rounded-xl focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-200 font-poppins text-sm transition-all duration-300"
+                          />
+                        </div>
                       </div>
 
                       <div>
