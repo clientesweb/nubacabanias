@@ -316,31 +316,29 @@ Enviado desde el sitio web de Cabañas NUBA`
           </div>
         </div>
       </section>
-      
-      {/* Promotional Banner */}
+
+      {/* Certification Banner */}
       <section className="bg-white py-0">
         <div className="w-full">
-          <div
-            className="relative overflow-hidden cursor-pointer group"
-            onClick={() => {
-              const phoneNumber = "5493546501444"
-              const message =
-                "🎉 ¡Hola! Me interesa la promoción especial: 5 noches al precio de 4 en Cabañas NUBA. ¿Podrían brindarme más información sobre esta oferta especial?"
-              const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
-              window.open(whatsappUrl, "_blank")
-            }}
+          <a
+            href="https://turismo.municipiosantarosa.gob.ar/nuba/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group"
           >
-            <Image
-              src="/images/banner-cabanas-certificadas-nuba.webp"
-              alt="Promoción especial - 5 noches al precio de 4 - Haz clic para consultar por WhatsApp"
-              width={1920}
-              height={400}
-              className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
-              priority
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
-          </div>
+            <div className="relative overflow-hidden cursor-pointer">
+              <Image
+                src="/images/banner-cabanas-certificadas-nuba.webp"
+                alt="Cabañas Certificadas - Habilitación Municipal T-148, Calidad Turística SIGO, Ministerio de Turismo - Santa Rosa de Calamuchita"
+                width={1920}
+                height={400}
+                className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                priority
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
+            </div>
+          </a>
         </div>
       </section>
 
