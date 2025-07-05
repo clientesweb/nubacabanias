@@ -6,59 +6,104 @@ import ModernGallery from "@/components/modern-gallery"
 
 export default function GaleriaPage() {
   const galleryImages = [
-    // Exterior Views
+    // Vistas Aéreas y Panorámicas
     {
-      src: "/images/bienvenidos-valle.webp",
-      alt: "Bienvenidos a Cabañas NUBA - Vista panorámica del valle",
-      category: "Exterior",
+      src: "/images/rio-santa-rosa-aerea.jpg",
+      alt: "Vista aérea de Santa Rosa de Calamuchita con el río y las montañas",
     },
     {
-      src: "/images/entrada-nuba-sign.webp",
-      alt: "Entrada principal con cartel de Cabañas NUBA",
-      category: "Exterior",
+      src: "/images/vista-aerea-santa-rosa.jpg",
+      alt: "Vista aérea del pueblo de Santa Rosa de Calamuchita",
     },
-    { src: "/images/complejo-cabanas.webp", alt: "Vista aérea del complejo de cabañas", category: "Exterior" },
-    { src: "/images/cabana-exterior-1.webp", alt: "Cabaña con jardines paisajísticos", category: "Exterior" },
-    { src: "/images/muebles-exterior.webp", alt: "Área de estar exterior con muebles de madera", category: "Exterior" },
+    {
+      src: "/images/panoramica-valle-calamuchita.jpg",
+      alt: "Vista panorámica del Valle de Calamuchita desde las alturas",
+    },
+    {
+      src: "/images/vista-aerea-complejo-nuba.jpg",
+      alt: "Vista aérea del complejo Cabañas NUBA",
+    },
+
+    // Paisajes Naturales
+    {
+      src: "/images/rio-otono-paisaje.jpg",
+      alt: "Río con colores otoñales y montañas de fondo",
+    },
+    { src: "/images/vista-valle.webp", alt: "Vista panorámica del Valle de Calamuchita" },
+    { src: "/images/cabaniasyparque.jpg", alt: "Cabañas integradas en el paisaje natural" },
+
+    // Piscina y Recreación
+    {
+      src: "/images/piscina-familias-disfrutando.jpg",
+      alt: "Familias disfrutando de la piscina con vista a las montañas",
+    },
+    {
+      src: "/images/piscina-vista-montanas-sol.jpg",
+      alt: "Piscina con vista panorámica a las montañas bajo el sol",
+    },
+    { src: "/images/piscina-montanas.webp", alt: "Piscina con vista panorámica a las montañas" },
+    { src: "/images/cabana-familiar-piscina.jpg", alt: "Cabaña Familiar - Acceso a piscina del complejo" },
+
+    // Cabaña Familiar - Exteriores
+    { src: "/images/cabana-familiar-exterior.jpg", alt: "Cabaña Familiar - Vista exterior con jardín paisajístico" },
+    {
+      src: "/images/cabanas-exteriores-jardines.jpg",
+      alt: "Vista exterior de las cabañas con jardines paisajísticos",
+    },
+    { src: "/images/cabana-exterior-1.webp", alt: "Cabaña con jardines paisajísticos" },
+
+    // Cabaña Familiar - Interiores
+    {
+      src: "/images/cabana-familiar-dormitorio-1.jpg",
+      alt: "Cabaña Familiar - Dormitorio principal con vigas de madera",
+    },
+    {
+      src: "/images/cabana-familiar-dormitorio-2.jpg",
+      alt: "Cabaña Familiar - Dormitorio con cabecero de madera",
+    },
+    { src: "/images/cabana-familiar-cocina-comedor.jpg", alt: "Cabaña Familiar - Cocina y comedor integrados" },
+    { src: "/images/cabana-familiar-living-comedor.jpg", alt: "Cabaña Familiar - Living comedor con sofá cama" },
+    { src: "/images/cabana-familiar-cocina-completa.jpg", alt: "Cabaña Familiar - Cocina completa equipada" },
+    {
+      src: "/images/cabana-familiar-dormitorio-principal.jpg",
+      alt: "Cabaña Familiar - Dormitorio con ventanas amplias",
+    },
+    { src: "/images/cabana-familiar-dormitorio-bano.jpg", alt: "Cabaña Familiar - Dormitorio y baño moderno" },
+    { src: "/images/cabana-familiar-suite-bano.jpg", alt: "Cabaña Familiar - Suite con baño privado" },
 
     // Cabaña de Madera
     {
-      src: "/images/cabana-madera.webp",
-      alt: "Cabaña de Madera - Vista exterior principal",
-      category: "Cabaña de Madera",
+      src: "/images/cabana-madera-exterior-1.webp",
+      alt: "Cabaña de Madera - Vista exterior con jardín",
     },
-    { src: "/images/nuba1.jpg", alt: "Cabaña de Madera - Galería cubierta", category: "Cabaña de Madera" },
-    { src: "/images/living1.jpg", alt: "Cabaña de Madera - Living interior acogedor", category: "Cabaña de Madera" },
+    { src: "/images/nuba1.jpg", alt: "Cabaña de Madera - Galería cubierta" },
+    { src: "/images/living1.jpg", alt: "Cabaña de Madera - Living interior acogedor" },
+    { src: "/images/cabana-madera-galeria.webp", alt: "Cabaña de Madera - Galería cubierta con asador" },
+    { src: "/images/cabana-madera-cocina.webp", alt: "Cabaña de Madera - Cocina y comedor interior" },
+    { src: "/images/cabana-madera-dormitorio.webp", alt: "Cabaña de Madera - Dormitorio con aire acondicionado" },
+    { src: "/images/cabana-madera-comedor.webp", alt: "Cabaña de Madera - Área de comedor" },
+    { src: "/images/cabana-madera-bano.webp", alt: "Cabaña de Madera - Baño completo" },
     {
       src: "/images/cabania2-canteros.jpg",
       alt: "Cabaña de Madera - Jardín con canteros",
-      category: "Cabaña de Madera",
     },
 
-    // Cabaña Familiar
+    // Áreas Comunes y Exteriores
     {
-      src: "/images/cabana-familiar.jpg",
-      alt: "Cabaña Familiar - Vista exterior moderna",
-      category: "Cabaña Familiar",
+      src: "/images/senderos-complejo-cabanas.jpg",
+      alt: "Senderos y caminos dentro del complejo de cabañas",
     },
-    { src: "/images/living-exterior.webp", alt: "Cabaña Familiar - Living exterior", category: "Cabaña Familiar" },
+    {
+      src: "/images/area-descanso-exterior.jpg",
+      alt: "Área de descanso exterior bajo los árboles",
+    },
+    { src: "/images/muebles-exterior.webp", alt: "Área de estar exterior con muebles de madera" },
+    { src: "/images/living-exterior.webp", alt: "Living exterior de las cabañas" },
 
     // Asadores y Parrillas
-    { src: "/images/asador.jpg", alt: "Asador de ladrillo tradicional", category: "Asadores" },
-    { src: "/images/cabana-asador-lena.webp", alt: "Asador con leñera incluida", category: "Asadores" },
-    { src: "/images/cabana-asador.webp", alt: "Área de asador con mesa exterior", category: "Asadores" },
-
-    // Piscina y Recreación
-    { src: "/images/piscina.webp", alt: "Piscina del complejo", category: "Piscina" },
-    { src: "/images/piscina-montanas.webp", alt: "Piscina con vista panorámica a las montañas", category: "Piscina" },
-
-    // Vistas del Valle
-    { src: "/images/vista-valle.webp", alt: "Vista panorámica del Valle de Calamuchita", category: "Paisajes" },
-    { src: "/images/cabaniasyparque.jpg", alt: "Cabañas integradas en el paisaje natural", category: "Paisajes" },
-
-    // Detalles y Comodidades
-    { src: "/images/entrada-cartel.webp", alt: "Cartel de entrada al complejo", category: "Detalles" },
-    { src: "/images/cartel.jpg", alt: "Señalización del complejo", category: "Detalles" },
+    { src: "/images/asador.jpg", alt: "Asador de ladrillo tradicional" },
+    { src: "/images/cabana-asador-lena.webp", alt: "Asador con leñera incluida" },
+    { src: "/images/cabana-asador.webp", alt: "Área de asador con mesa exterior" },
   ]
 
   return (
@@ -100,6 +145,12 @@ export default function GaleriaPage() {
             <p className="text-lg sm:text-xl text-stone-600 font-poppins mb-6">
               Descubre la belleza de Cabañas NUBA y el Valle de Calamuchita
             </p>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg border border-white/50 max-w-2xl mx-auto">
+              <p className="text-stone-700 font-poppins text-sm sm:text-base">
+                Explora nuestras instalaciones, cabañas, paisajes naturales y todas las comodidades que ofrecemos para
+                tu estadía perfecta en el Valle de Calamuchita.
+              </p>
+            </div>
           </div>
         </div>
       </section>
