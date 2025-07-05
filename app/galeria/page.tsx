@@ -6,7 +6,7 @@ import ModernGallery from "@/components/modern-gallery"
 
 export default function GaleriaPage() {
   const galleryImages = [
-    // Vistas Aéreas y Panorámicas
+    // Vistas Aéreas y Panorámicas (solo las nuevas sin viñetas)
     {
       src: "/images/rio-santa-rosa-aerea.jpg",
       alt: "Vista aérea de Santa Rosa de Calamuchita con el río y las montañas",
@@ -24,15 +24,13 @@ export default function GaleriaPage() {
       alt: "Vista aérea del complejo Cabañas NUBA",
     },
 
-    // Paisajes Naturales
+    // Paisajes Naturales (solo las nuevas sin viñetas)
     {
       src: "/images/rio-otono-paisaje.jpg",
       alt: "Río con colores otoñales y montañas de fondo",
     },
-    { src: "/images/vista-valle.webp", alt: "Vista panorámica del Valle de Calamuchita" },
-    { src: "/images/cabaniasyparque.jpg", alt: "Cabañas integradas en el paisaje natural" },
 
-    // Piscina y Recreación
+    // Piscina y Recreación (solo las nuevas sin viñetas)
     {
       src: "/images/piscina-familias-disfrutando.jpg",
       alt: "Familias disfrutando de la piscina con vista a las montañas",
@@ -41,18 +39,16 @@ export default function GaleriaPage() {
       src: "/images/piscina-vista-montanas-sol.jpg",
       alt: "Piscina con vista panorámica a las montañas bajo el sol",
     },
-    { src: "/images/piscina-montanas.webp", alt: "Piscina con vista panorámica a las montañas" },
     { src: "/images/cabana-familiar-piscina.jpg", alt: "Cabaña Familiar - Acceso a piscina del complejo" },
 
-    // Cabaña Familiar - Exteriores
+    // Cabaña Familiar - Exteriores (solo las nuevas sin viñetas)
     { src: "/images/cabana-familiar-exterior.jpg", alt: "Cabaña Familiar - Vista exterior con jardín paisajístico" },
     {
       src: "/images/cabanas-exteriores-jardines.jpg",
       alt: "Vista exterior de las cabañas con jardines paisajísticos",
     },
-    { src: "/images/cabana-exterior-1.webp", alt: "Cabaña con jardines paisajísticos" },
 
-    // Cabaña Familiar - Interiores
+    // Cabaña Familiar - Interiores (todas las nuevas)
     {
       src: "/images/cabana-familiar-dormitorio-1.jpg",
       alt: "Cabaña Familiar - Dormitorio principal con vigas de madera",
@@ -71,24 +67,18 @@ export default function GaleriaPage() {
     { src: "/images/cabana-familiar-dormitorio-bano.jpg", alt: "Cabaña Familiar - Dormitorio y baño moderno" },
     { src: "/images/cabana-familiar-suite-bano.jpg", alt: "Cabaña Familiar - Suite con baño privado" },
 
-    // Cabaña de Madera
+    // Cabaña de Madera (solo las nuevas sin viñetas)
     {
       src: "/images/cabana-madera-exterior-1.webp",
       alt: "Cabaña de Madera - Vista exterior con jardín",
     },
-    { src: "/images/nuba1.jpg", alt: "Cabaña de Madera - Galería cubierta" },
-    { src: "/images/living1.jpg", alt: "Cabaña de Madera - Living interior acogedor" },
     { src: "/images/cabana-madera-galeria.webp", alt: "Cabaña de Madera - Galería cubierta con asador" },
     { src: "/images/cabana-madera-cocina.webp", alt: "Cabaña de Madera - Cocina y comedor interior" },
     { src: "/images/cabana-madera-dormitorio.webp", alt: "Cabaña de Madera - Dormitorio con aire acondicionado" },
     { src: "/images/cabana-madera-comedor.webp", alt: "Cabaña de Madera - Área de comedor" },
     { src: "/images/cabana-madera-bano.webp", alt: "Cabaña de Madera - Baño completo" },
-    {
-      src: "/images/cabania2-canteros.jpg",
-      alt: "Cabaña de Madera - Jardín con canteros",
-    },
 
-    // Áreas Comunes y Exteriores
+    // Áreas Comunes y Exteriores (solo las nuevas sin viñetas)
     {
       src: "/images/senderos-complejo-cabanas.jpg",
       alt: "Senderos y caminos dentro del complejo de cabañas",
@@ -97,13 +87,9 @@ export default function GaleriaPage() {
       src: "/images/area-descanso-exterior.jpg",
       alt: "Área de descanso exterior bajo los árboles",
     },
-    { src: "/images/muebles-exterior.webp", alt: "Área de estar exterior con muebles de madera" },
-    { src: "/images/living-exterior.webp", alt: "Living exterior de las cabañas" },
 
-    // Asadores y Parrillas
+    // Asadores (solo las que no tienen viñetas)
     { src: "/images/asador.jpg", alt: "Asador de ladrillo tradicional" },
-    { src: "/images/cabana-asador-lena.webp", alt: "Asador con leñera incluida" },
-    { src: "/images/cabana-asador.webp", alt: "Área de asador con mesa exterior" },
   ]
 
   return (
