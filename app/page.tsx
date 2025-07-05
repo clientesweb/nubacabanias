@@ -331,7 +331,7 @@ Enviado desde el sitio web de Cabañas NUBA`
             }}
           >
             <Image
-              src="/images/banner-invierno-nuba-nuevo.webp"
+              src="/images/banner-cabanas-certificadas-nuba.webp"
               alt="Promoción especial - 5 noches al precio de 4 - Haz clic para consultar por WhatsApp"
               width={1920}
               height={400}
