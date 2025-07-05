@@ -17,12 +17,10 @@ import {
   Check,
   Clock,
   Shield,
-  TrendingDown,
   Calendar,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import Link from "next/link"
@@ -34,17 +32,10 @@ export default function CabanaFamiliarPage() {
   const [isFormVisible, setIsFormVisible] = useState(false)
 
   const announcements = [
-    "🌿 Entorno familiar",
+    "🌿 Oferta especial: 5 noches al precio de 4",
     "🏔️ Valle de Calamuchita - Naturaleza pura",
     "🔥 Cabañas equipadas con asador privado",
   ]
-
-  const pricing = {
-    originalPrice: 65000,
-    offerPrice: 43000,
-    discount: 34,
-    savings: 22000,
-  }
 
   const galleryImages = [
     { src: "/images/cabana-familiar.jpg", alt: "Cabaña Familiar - Vista exterior principal" },
@@ -133,7 +124,7 @@ ${message}
 
 ---
 🏠 *Cabaña solicitada:* Cabaña Familiar (2-4 personas)
-💰 *Precio especial:* $${pricing.offerPrice.toLocaleString()} por noche (${pricing.discount}% OFF)
+🎉 *Oferta especial:* 5 noches al precio de 4
 Enviado desde el sitio web de Cabañas NUBA`
 
     const phoneNumber = "5493546501444"
@@ -147,15 +138,6 @@ Enviado desde el sitio web de Cabañas NUBA`
 
   const prevImage = () => {
     setCurrentImage((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
-  }
-
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("es-AR", {
-      style: "currency",
-      currency: "ARS",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(price)
   }
 
   return (
@@ -266,7 +248,7 @@ Enviado desde el sitio web de Cabañas NUBA`
       <section className="relative w-full">
         <div className="relative w-full cursor-pointer group" onClick={handleWhatsAppClick}>
           <Image
-            src="/images/banner-cabana-familiar.webp"
+            src="/images/complejo-cabanas.webp"
             alt="Cabaña Familiar - Vista del complejo - Haz clic para consultar por WhatsApp"
             width={1920}
             height={1080}
@@ -309,25 +291,17 @@ Enviado desde el sitio web de Cabañas NUBA`
         </div>
       </section>
 
-      {/* Price Banner */}
+      {/* Special Offer Banner */}
       <section className="bg-green-50 py-4 border-b border-green-200">
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <div>
-            <h4 className="font-montserrat font-bold text-stone-800 text-sm sm:text-base">
-              Precio por noche: <span className="font-extrabold">{formatPrice(pricing.offerPrice)}</span>
+        <div className="container mx-auto px-4 flex items-center justify-center">
+          <div className="text-center">
+            <h4 className="font-montserrat font-bold text-green-800 text-sm sm:text-base mb-1">
+              🎉 Oferta Especial: 5 noches al precio de 4
             </h4>
             <p className="text-green-700 font-poppins text-xs">
-              <s>{formatPrice(pricing.originalPrice)}</s>{" "}
-              <TrendingDown className="inline-block h-3 w-3 ml-1 text-red-500" />{" "}
-              <span className="font-semibold text-red-600">¡Ahorras {formatPrice(pricing.savings)}!</span>
+              ¡Aprovecha esta oportunidad única para disfrutar más días en el valle!
             </p>
           </div>
-          <Button
-            onClick={() => setIsFormVisible(true)}
-            className="bg-green-600 text-white hover:bg-green-700 px-3 py-2 text-xs sm:px-4 sm:py-2 sm:text-sm rounded-full font-poppins font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            ¡Reserva Ahora!
-          </Button>
         </div>
       </section>
 
@@ -491,32 +465,19 @@ Enviado desde el sitio web de Cabañas NUBA`
                         <Shield className="h-5 w-5" />
                         <span className="font-poppins font-semibold text-sm">Reserva Segura</span>
                       </div>
-                      <Badge className="bg-red-600 text-white text-xs font-bold">-{pricing.discount}%</Badge>
                     </div>
                     <h3 className="text-xl font-montserrat font-extrabold">Reservar Cabaña Familiar</h3>
                     <p className="text-forest-100 font-poppins text-sm">2-4 personas • Disponibilidad limitada</p>
                   </div>
 
                   <CardContent className="p-6">
-                    {/* Pricing Display */}
-                    <div className="mb-4">
-                      <h4 className="font-montserrat font-bold text-stone-800 text-sm sm:text-base">
-                        Precio por noche: <span className="font-extrabold">{formatPrice(pricing.offerPrice)}</span>
-                      </h4>
-                      <p className="text-stone-700 font-poppins text-xs">
-                        <s>{formatPrice(pricing.originalPrice)}</s>{" "}
-                        <TrendingDown className="inline-block h-3 w-3 ml-1 text-red-500" />{" "}
-                        <span className="font-semibold text-red-600">¡Ahorras {formatPrice(pricing.savings)}!</span>
-                      </p>
-                    </div>
-
                     <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-6">
                       <div className="flex items-center space-x-2 mb-2">
                         <Calendar className="h-4 w-4 text-yellow-600" />
                         <span className="font-poppins font-semibold text-yellow-800 text-sm">Oferta Especial</span>
                       </div>
                       <p className="text-yellow-700 font-poppins text-sm">
-                        3 noches al precio de 2 - Válido hasta el 15 de agosto
+                        5 noches al precio de 4 - ¡Aprovecha esta oportunidad única!
                       </p>
                     </div>
 
