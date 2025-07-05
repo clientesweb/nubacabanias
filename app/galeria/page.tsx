@@ -1,5 +1,5 @@
 "use client"
-import { ArrowLeft, Camera, MapPin, Star } from "lucide-react"
+import { ArrowLeft, Camera } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import ModernGallery from "@/components/modern-gallery"
@@ -100,20 +100,6 @@ export default function GaleriaPage() {
             <p className="text-lg sm:text-xl text-stone-600 font-poppins mb-6">
               Descubre la belleza de Cabañas NUBA y el Valle de Calamuchita
             </p>
-            <div className="flex items-center justify-center space-x-6 text-stone-500">
-              <div className="flex items-center space-x-2">
-                <Camera className="h-5 w-5" />
-                <span className="font-poppins text-sm">{galleryImages.length} fotos</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-5 w-5" />
-                <span className="font-poppins text-sm">Santa Rosa de Calamuchita</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                <span className="font-poppins text-sm">5.0 estrellas</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
