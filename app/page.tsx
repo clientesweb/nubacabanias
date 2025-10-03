@@ -233,8 +233,8 @@ Enviado desde el sitio web de Cabañas NUBA`
             }}
           >
             <Image
-              src="/images/banner-5-noches.webp"
-              alt="Promoción especial - 5 noches al precio de 4 - Haz clic para consultar por WhatsApp"
+              src="/images/banner-octoberfest-2025-nuba-cabanias-reservas.webp"
+              alt="Oktoberfest 2025 en Cabañas NUBA - Reserva tu lugar ahora y consultá por WhatsApp"
               width={1920}
               height={400}
               className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
