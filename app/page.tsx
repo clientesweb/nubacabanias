@@ -226,14 +226,14 @@ Enviado desde el sitio web de Cabañas NUBA`
             onClick={() => {
               const phoneNumber = "5493546501444"
               const message =
-                "🎉 ¡Hola! Me interesa la promoción especial: 5 noches al precio de 4 en Cabañas NUBA. ¿Podrían brindarme más información sobre esta oferta especial?"
+                "🍻 ¡Hola! Me interesa hospedarme en Cabañas NUBA para la Oktoberfest 2025. ¿Podrían brindarme información sobre disponibilidad y tarifas para las fechas del evento?"
               const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
               window.open(whatsappUrl, "_blank")
             }}
           >
             <Image
-              src="/images/banner-5-noches.webp"
-              alt="Promoción especial - 5 noches al precio de 4 - Haz clic para consultar por WhatsApp"
+              src="/images/banner-octoberfest-2025-nuba-cabanias-reservas.webp"
+              alt="Oktoberfest 2025 Villa General Belgrano - Hospédate en Cabañas NUBA a minutos de la fiesta - Haz clic para reservar por WhatsApp"
               width={1920}
               height={400}
               className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
