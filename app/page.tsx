@@ -27,9 +27,9 @@ export default function CabanasNybaPage() {
   const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
 
   const announcements = [
-    "🌿 Oferta especial: 5 noches al precio de 4",
-    "🏔️ Valle de Calamuchita - Naturaleza pura",
-    "🔥 Cabañas equipadas con asador privado",
+    "🍻 ¡Viví la Oktoberfest 2025!",
+    "🏡 Hospedate en Cabañas Nuba, a minutos de la fiesta",
+    "📲 Reservá fácil ¡Contáctanos!",
   ]
 
   const cabanas = [
