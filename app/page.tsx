@@ -27,7 +27,7 @@ export default function CabanasNybaPage() {
   const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
 
   const announcements = [
-    "🍻 ¡Viví la Oktoberfest 2025!",
+    "🍻 ¡Viví el Oktoberfest 2025!",
     "🏡 Hospedate en Cabañas Nuba, a minutos de la fiesta",
     "📲 Reservá fácil ¡Contáctanos!",
   ]
