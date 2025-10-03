@@ -27,10 +27,10 @@ export default function CabanasNybaPage() {
   const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
 
   const announcements = [
-  "🍻 ¡Viví la Oktoberfest 2025 en Calamuchita!",
-  "🏡 Hospedate en Cabañas Nuba, a minutos de la fiesta",
-  "📲 Reservá fácil en www.nubacabanias.com.ar",
-]
+    "🌿 Oferta especial: 5 noches al precio de 4",
+    "🏔️ Valle de Calamuchita - Naturaleza pura",
+    "🔥 Cabañas equipadas con asador privado",
+  ]
 
   const cabanas = [
     {
@@ -226,15 +226,14 @@ Enviado desde el sitio web de Cabañas NUBA`
             onClick={() => {
               const phoneNumber = "5493546501444"
               const message =
-                "🍻 ¡Hola! Estoy interesado en hospedarme en Cabañas NUBA durante la Oktoberfest 2025.  
-¿Podrían darme más información sobre disponibilidad y tarifas para esas fechas?"
+                "🎉 ¡Hola! Me interesa la promoción especial: 5 noches al precio de 4 en Cabañas NUBA. ¿Podrían brindarme más información sobre esta oferta especial?"
               const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
               window.open(whatsappUrl, "_blank")
             }}
           >
             <Image
-              src="/images/banner-octoberfest-2025-nuba-cabanias-reservas.webp"
-              alt="Oktoberfest 2025 en Cabañas NUBA - Reserva tu lugar ahora y consultá por WhatsApp"
+              src="/images/banner-5-noches.webp"
+              alt="Promoción especial - 5 noches al precio de 4 - Haz clic para consultar por WhatsApp"
               width={1920}
               height={400}
               className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
