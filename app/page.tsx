@@ -18,7 +18,6 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import Link from "next/link"
@@ -26,11 +25,7 @@ import Link from "next/link"
 export default function CabanasNybaPage() {
   const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
 
-  const announcements = [
-    "🍻 ¡Viví el Oktoberfest 2025!",
-    "🏡 Hospedate en Cabañas Nuba, a minutos de la fiesta",
-    "📲 Reservá fácil ¡Contáctanos!",
-  ]
+  const announcements = ["🏡 Hospedate en Cabañas Nuba, a minutos de la fiesta", "📲 Reservá fácil ¡Contáctanos!"]
 
   const cabanas = [
     {
@@ -157,7 +152,7 @@ Enviado desde el sitio web de Cabañas NUBA`
         <div className="container mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
           <div className="flex items-center">
             <Image
-              src="/images/logo-cabanas-nuba.png"
+              src="/images/logo-cabanas-nuba.webp"
               alt="Cabañas NUBA"
               width={120}
               height={60}
@@ -207,7 +202,7 @@ Enviado desde el sitio web de Cabañas NUBA`
       <section id="inicio" className="relative w-full pt-[68px] sm:pt-[76px] lg:pt-20">
         <div className="relative w-full cursor-pointer group" onClick={handleWhatsAppClick}>
           <Image
-            src="/images/bienvenidos-valle.webp"
+            src="/images/banner-principal-nuba.webp"
             alt="Bienvenidos a Cabañas Nuba - Valle de Calamuchita - Haz clic para consultar por WhatsApp"
             width={1920}
             height={1080}
@@ -232,8 +227,8 @@ Enviado desde el sitio web de Cabañas NUBA`
             }}
           >
             <Image
-              src="/images/banner-octoberfest-2025-nuba-cabanias-reservas.webp"
-              alt="Oktoberfest 2025 Villa General Belgrano - Hospédate en Cabañas NUBA a minutos de la fiesta - Haz clic para reservar por WhatsApp"
+              src="/images/nuba-banner-publicitario.webp"
+              alt="Temporada Navideña - Hospédate en Cabañas NUBA - Haz clic para reservar por WhatsApp"
               width={1920}
               height={400}
               className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
@@ -246,8 +241,18 @@ Enviado desde el sitio web de Cabañas NUBA`
       </section>
 
       {/* Cabañas Section */}
-      <section id="cabanas" className="bg-white py-16 sm:py-20 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section
+        id="cabanas"
+        className="relative py-16 sm:py-20 lg:py-24"
+        style={{
+          backgroundImage: "url(/images/christmas-background.webp)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        <div className="absolute inset-0 bg-white/90"></div>
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-stone-900 mb-3 sm:mb-4">
               NUESTRAS CABAÑAS
@@ -263,11 +268,6 @@ Enviado desde el sitio web de Cabañas NUBA`
                 key={cabana.id}
                 className="group overflow-hidden border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300 relative"
               >
-                {/* Special Offer Badge */}
-                <div className="absolute top-4 right-4 z-10">
-                  <Badge className="bg-green-600 text-white border-0 px-3 py-1 text-sm font-bold shadow-lg">5x4</Badge>
-                </div>
-
                 <div className="relative overflow-hidden">
                   <Image
                     src={cabana.image || "/placeholder.svg"}
@@ -282,19 +282,6 @@ Enviado desde el sitio web de Cabañas NUBA`
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-1 sm:gap-0">
                     <h3 className="text-lg sm:text-xl font-montserrat font-extrabold text-stone-900">{cabana.name}</h3>
                     <span className="text-sm text-stone-500 font-poppins font-medium">{cabana.capacity}</span>
-                  </div>
-
-                  {/* Special Offer Section */}
-                  <div className="mb-4 p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-green-800 font-poppins font-semibold text-sm">Oferta Especial</span>
-                      </div>
-                      <Badge className="bg-green-600 text-white text-xs">5x4</Badge>
-                    </div>
-                    <p className="text-green-700 font-poppins text-sm font-medium">
-                      5 noches al precio de 4 - ¡Aprovecha esta oportunidad única!
-                    </p>
                   </div>
 
                   <ul className="space-y-2 text-stone-600 text-sm mb-4">
@@ -382,7 +369,7 @@ Enviado desde el sitio web de Cabañas NUBA`
 
             {/* Call to Action */}
             <div className="text-center">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-white/50 max-w-2xl mx-auto">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 shadow-lg border border-white/50 max-w-2xl mx-auto">
                 <div className="flex items-center justify-center space-x-3 mb-4">
                   <Camera className="h-6 w-6 text-forest-600" />
                   <h3 className="text-xl sm:text-2xl font-montserrat font-extrabold text-stone-900">
@@ -725,7 +712,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                       <Facebook className="h-4 w-4 sm:h-5 sm:w-5 text-stone-400" />
                     </div>
                     <div>
-                      <p className="font-poppins font-semibold text-sm sm:text-base">Redes Sociales</p>
+                      <p className="font-montserrat font-semibold text-sm sm:text-base">Redes Sociales</p>
                       <div className="flex flex-col sm:flex-row sm:space-x-4 mt-1 gap-1 sm:gap-0">
                         <a
                           href="https://www.instagram.com/cabanasnuba?igsh=dmp1Nnd3aHJjb21t"
@@ -795,7 +782,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                       id="dates"
                       name="dates"
                       required
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-forest-800 border border-forest-700 rounded-xl focus:outline-none focus:border-stone-400 text-white font-poppins text-sm"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-forest-800 border border-forest-700 rounded-xl focus:outline-none focus:border-stone-400 text-white resize-none font-poppins text-sm"
                       placeholder="Ej: 15-20 de enero 2024"
                     />
                   </div>
@@ -827,34 +814,84 @@ Enviado desde el sitio web de Cabañas NUBA`
       </section>
 
       {/* Footer */}
-      <footer className="bg-stone-900 text-stone-400 py-8 sm:py-12">
+      <footer className="bg-stone-50 border-t border-stone-200 py-12 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
-            <div className="mb-4 md:mb-0">
-              <Image
-                src="/images/logo-cabanas-nuba.png"
-                alt="Cabañas NUBA"
-                width={120}
-                height={60}
-                className="h-8 sm:h-10 lg:h-12 w-auto filter brightness-0 invert opacity-70"
-              />
-            </div>
-            <div className="text-center md:text-right">
-              <p className="text-xs sm:text-sm font-poppins mb-1">
-                &copy; 2024 Cabañas NUBA. Todos los derechos reservados.
+          <div className="grid sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 mb-8 sm:mb-12">
+            {/* Logo and Description */}
+            <div className="sm:col-span-1">
+              <Link href="/">
+                <Image
+                  src="/images/logo-cabanas-nuba.webp"
+                  alt="Cabañas NUBA"
+                  width={150}
+                  height={75}
+                  className="h-16 w-auto mb-4"
+                />
+              </Link>
+              <p className="text-sm sm:text-base font-poppins mb-4">
+                Descubre la belleza del Valle de Calamuchita en nuestras cabañas.
               </p>
-              <p className="text-xs text-stone-500 font-poppins">
-                Desarrollado por{" "}
+            </div>
+
+            {/* Links */}
+            <div className="sm:col-span-1">
+              <h4 className="font-montserrat font-bold text-stone-900 text-sm sm:text-base mb-4">Enlaces Útiles</h4>
+              <ul className="space-y-2 text-stone-700 text-sm font-poppins">
+                <li>
+                  <Link href="#inicio" className="hover:text-stone-900">
+                    Inicio
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#cabanas" className="hover:text-stone-900">
+                    Cabañas
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/galeria" className="hover:text-stone-900">
+                    Galería
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#ubicacion" className="hover:text-stone-900">
+                    Ubicación
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contacto" className="hover:text-stone-900">
+                    Contacto
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Social Media */}
+            <div className="sm:col-span-1">
+              <h4 className="font-montserrat font-bold text-stone-900 text-sm sm:text-base mb-4">
+                Síguenos en Redes Sociales
+              </h4>
+              <div className="flex items-center justify-center space-x-4">
                 <a
-                  href="https://dualitydomain.com"
+                  href="https://www.instagram.com/cabanasnuba?igsh=dmp1Nnd3aHJjb21t"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-stone-400 hover:text-stone-300 transition-colors"
+                  className="text-stone-900 hover:text-stone-700 transition-colors"
                 >
-                  Duality Domain
+                  <Instagram className="h-6 w-6" />
                 </a>
-              </p>
+                <a
+                  href="https://fb.me/NubaCabanias"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-stone-900 hover:text-stone-700 transition-colors"
+                >
+                  <Facebook className="h-6 w-6" />
+                </a>
+              </div>
             </div>
+          </div>
+          <div className="text-center text-sm sm:text-base font-poppins">
+            &copy; 2024 Cabañas NUBA. Todos los derechos reservados.
           </div>
         </div>
       </footer>

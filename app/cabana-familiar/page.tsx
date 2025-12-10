@@ -249,7 +249,7 @@ Enviado desde el sitio web de Cabañas NUBA`
             <div className="h-6 w-px bg-stone-300"></div>
             <Link href="/">
               <Image
-                src="/images/logo-cabanas-nuba.png"
+                src="/images/logo-cabanas-nuba.webp"
                 alt="Cabañas NUBA"
                 width={120}
                 height={60}
@@ -309,20 +309,6 @@ Enviado desde el sitio web de Cabañas NUBA`
         </div>
       </section>
 
-      {/* Special Offer Banner */}
-      <section className="bg-green-50 py-4 border-b border-green-200">
-        <div className="container mx-auto px-4 flex items-center justify-center">
-          <div className="text-center">
-            <h4 className="font-montserrat font-bold text-green-800 text-sm sm:text-base mb-1">
-              🎉 Oferta Especial: 5 noches al precio de 4
-            </h4>
-            <p className="text-green-700 font-poppins text-xs">
-              ¡Aprovecha esta oportunidad única para disfrutar más días en el valle!
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Quick Features Bar */}
       <section className="bg-white py-4 border-b border-stone-200">
         <div className="container mx-auto px-4">
@@ -370,7 +356,7 @@ Enviado desde el sitio web de Cabañas NUBA`
       </section>
 
       {/* Main Content */}
-      <section className="bg-white py-12 sm:py-16 lg:py-20">
+      <main className="bg-white py-12 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Left Column - Details */}
@@ -623,20 +609,20 @@ Enviado desde el sitio web de Cabañas NUBA`
             </div>
           </div>
         </div>
-      </section>
+      </main>
 
       {/* Footer */}
-      <footer className="bg-stone-900 text-stone-400 py-8 sm:py-12">
+      <footer className="bg-stone-50 border-t border-stone-200 py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-0">
             <div className="mb-4 md:mb-0">
               <Link href="/">
                 <Image
-                  src="/images/logo-cabanas-nuba.png"
+                  src="/images/logo-cabanas-nuba.webp"
                   alt="Cabañas NUBA"
-                  width={120}
-                  height={60}
-                  className="h-8 sm:h-10 w-auto filter brightness-0 invert opacity-70"
+                  width={150}
+                  height={75}
+                  className="h-16 w-auto mb-4 sm:mb-0"
                 />
               </Link>
             </div>
@@ -650,7 +636,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   href="https://dualitydomain.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-stone-400 hover:text-stone-300 transition-colors"
+                  className="text-stone-600 hover:text-stone-500 transition-colors"
                 >
                   Duality Domain
                 </a>
