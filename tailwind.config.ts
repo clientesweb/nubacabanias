@@ -9,7 +9,6 @@ const config: Config = {
     "./src/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -26,7 +25,6 @@ const config: Config = {
         sans: ["Inter", "sans-serif"],
       },
       colors: {
-        // Paleta natural para cabañas
         earth: {
           50: "#faf8f5",
           100: "#f4f0e8",
@@ -122,6 +120,6 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+}
 
 export default config
