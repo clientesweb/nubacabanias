@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import {
   MapPin,
   Wifi,
@@ -15,17 +13,18 @@ import {
   Camera,
   ArrowRight,
   ImageIcon,
+  Flame,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 
 export default function CabanasNybaPage() {
   const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
 
-  const announcements = ["🏡 Hospedate en Cabañas Nuba, a minutos de la fiesta", "📲 Reservá fácil ¡Contáctanos!"]
+  const announcements = ["📞 +54 9 3546 50-1444 | ✉️ info@nubacabanias.com.ar"]
 
   const cabanas = [
     {
@@ -67,14 +66,6 @@ export default function CabanasNybaPage() {
     { src: "/images/muebles-exterior.webp", alt: "Área de estar exterior" },
   ]
 
-  // Announcement rotation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentAnnouncement((prev) => (prev + 1) % announcements.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
-
   // WhatsApp click handler
   const handleWhatsAppClick = () => {
     const phoneNumber = "5493546501444"
@@ -85,14 +76,14 @@ export default function CabanasNybaPage() {
   }
 
   // Contact form handler
-  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleContactSubmit = (e) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
 
-    const name = formData.get("name") as string
-    const email = formData.get("email") as string
-    const dates = formData.get("dates") as string
-    const message = formData.get("message") as string
+    const name = formData.get("name")
+    const email = formData.get("email")
+    const dates = formData.get("dates")
+    const message = formData.get("message")
 
     const whatsappMessage = `🏔️ *CONSULTA CABAÑAS NUBA*
 
@@ -117,38 +108,18 @@ Enviado desde el sitio web de Cabañas NUBA`
       <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
         <button
           onClick={handleWhatsAppClick}
-          className="group bg-forest-600 hover:bg-forest-700 text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+          className="group bg-[#25D366] hover:bg-[#20BA5A] text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
           aria-label="Contactar por WhatsApp"
         >
           <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
-          <div className="absolute right-full mr-2 sm:mr-3 top-1/2 transform -translate-y-1/2 bg-forest-800 text-white px-2 sm:px-3 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-poppins font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <div className="absolute right-full mr-2 sm:mr-3 top-1/2 transform -translate-y-1/2 bg-stone-900 text-white px-2 sm:px-3 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-poppins font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             ¡Consultanos por WhatsApp!
           </div>
         </button>
       </div>
 
-      {/* Announcement Bar */}
-      <div className="bg-forest-800 text-stone-50 py-2 px-2 text-center relative overflow-hidden">
-        <div className="relative w-full">
-          {announcements.map((announcement, index) => (
-            <div
-              key={index}
-              className={`transition-opacity duration-500 ${
-                index === currentAnnouncement
-                  ? "opacity-100"
-                  : "opacity-0 absolute inset-0 flex items-center justify-center"
-              }`}
-            >
-              <p className="text-xs sm:text-sm font-poppins font-medium px-2 text-center leading-tight">
-                {announcement}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Header */}
-      <header className="absolute top-8 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-stone-200/50">
+      <header className="absolute top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-stone-200/50">
         <div className="container mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
           <div className="flex items-center">
             <Image
@@ -251,13 +222,13 @@ Enviado desde el sitio web de Cabañas NUBA`
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-white/90"></div>
+        <div className="absolute inset-0 bg-white/98"></div>
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-stone-900 mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-stone-900 mb-3 sm:mb-4 drop-shadow-sm">
               NUESTRAS CABAÑAS
             </h2>
-            <p className="text-base sm:text-lg text-stone-600 max-w-xl mx-auto font-poppins font-medium px-4">
+            <p className="text-base sm:text-lg text-stone-800 max-w-xl mx-auto font-poppins font-semibold px-4">
               Espacios únicos diseñados para su descanso y comodidad
             </p>
           </div>
@@ -285,15 +256,33 @@ Enviado desde el sitio web de Cabañas NUBA`
                   </div>
 
                   <ul className="space-y-2 text-stone-600 text-sm mb-4">
-                    {cabana.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center font-poppins">
-                        <span className="w-1 h-1 bg-forest-600 rounded-full mr-3 flex-shrink-0"></span>
-                        {feature}
-                      </li>
-                    ))}
+                    {cabana.features.map((feature, idx) => {
+                      // Determine icon based on feature text
+                      let icon = null
+                      if (
+                        feature.toLowerCase().includes("cochera") ||
+                        feature.toLowerCase().includes("estacionamiento")
+                      ) {
+                        icon = <Car className="h-4 w-4 text-forest-600 flex-shrink-0" />
+                      } else if (
+                        feature.toLowerCase().includes("asador") ||
+                        feature.toLowerCase().includes("parrilla")
+                      ) {
+                        icon = <Flame className="h-4 w-4 text-forest-600 flex-shrink-0" />
+                      } else {
+                        icon = <span className="w-1 h-1 bg-forest-600 rounded-full flex-shrink-0"></span>
+                      }
+
+                      return (
+                        <li key={idx} className="flex items-center gap-3 font-poppins">
+                          {icon}
+                          {feature}
+                        </li>
+                      )
+                    })}
                   </ul>
                   <Link href={`/cabana-${cabana.id === 1 ? "madera" : "familiar"}`}>
-                    <Button className="w-full bg-gradient-to-r from-forest-600 to-forest-700 text-white hover:from-forest-700 hover:to-forest-800 rounded-full font-poppins font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                    <Button className="w-full bg-[#2d5016] text-white hover:bg-[#1f3a0f] border-2 border-[#2d5016] rounded-full font-poppins font-bold text-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                       Ver Detalles y Reservar
                     </Button>
                   </Link>
@@ -381,7 +370,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   y paisajes del valle.
                 </p>
                 <Link href="/galeria">
-                  <Button className="bg-gradient-to-r from-forest-600 to-forest-700 text-white hover:from-forest-700 hover:to-forest-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-poppins font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 mx-auto">
+                  <Button className="bg-[#2d5016] text-white hover:bg-[#1f3a0f] border-2 border-[#2d5016] px-6 sm:px-8 py-3 sm:py-4 rounded-full font-poppins font-bold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 mx-auto">
                     <Camera className="h-4 w-4 sm:h-5 sm:w-5" />
                     <span>Explorar Galería</span>
                     <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -480,7 +469,7 @@ Enviado desde el sitio web de Cabañas NUBA`
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-stone-900 mb-3 sm:mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold mb-3 sm:mb-4 drop-shadow-sm">
                 SERVICIOS Y COMODIDADES
               </h2>
               <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-poppins font-medium">
@@ -490,21 +479,24 @@ Enviado desde el sitio web de Cabañas NUBA`
 
             {/* Main Services */}
             <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-              <Card className="group border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-forest-50 to-forest-100">
+              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-forest-50 to-forest-100">
                 <CardContent className="p-6 sm:p-8 text-center">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-forest-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Car className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+                    <div className="flex items-center gap-1">
+                      <Car className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+                      <Flame className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+                    </div>
                   </div>
                   <h3 className="text-lg sm:text-xl font-montserrat font-extrabold mb-3 text-stone-900">
                     Cochera y Asador
                   </h3>
-                  <p className="text-stone-600 font-poppins text-sm sm:text-base leading-relaxed">
+                  <p className="text-stone-700 font-poppins font-medium text-sm sm:text-base leading-relaxed">
                     Cochera cubierta para tu vehículo y asador individual de ladrillo para disfrutar al aire libre
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="group border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-blue-50 to-blue-100">
+              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-blue-50 to-blue-100">
                 <CardContent className="p-6 sm:p-8 text-center">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
                     <Wifi className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
@@ -512,13 +504,13 @@ Enviado desde el sitio web de Cabañas NUBA`
                   <h3 className="text-lg sm:text-xl font-montserrat font-extrabold mb-3 text-stone-900">
                     Conectividad Total
                   </h3>
-                  <p className="text-stone-600 font-poppins text-sm sm:text-base leading-relaxed">
+                  <p className="text-stone-700 font-poppins font-medium text-sm sm:text-base leading-relaxed">
                     Wi-Fi gratuito de alta velocidad y TV LED 32" para tu entretenimiento y conectividad
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="group border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-amber-50 to-amber-100">
+              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-amber-50 to-amber-100">
                 <CardContent className="p-6 sm:p-8 text-center">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
                     <Users className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
@@ -526,7 +518,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                   <h3 className="text-lg sm:text-xl font-montserrat font-extrabold mb-3 text-stone-900">
                     Ambiente Familiar
                   </h3>
-                  <p className="text-stone-600 font-poppins text-sm sm:text-base leading-relaxed">
+                  <p className="text-stone-700 font-poppins font-medium text-sm sm:text-base leading-relaxed">
                     Espacio exclusivamente familiar en un entorno seguro y tranquilo para toda la familia
                   </p>
                 </CardContent>
@@ -548,19 +540,19 @@ Enviado desde el sitio web de Cabañas NUBA`
                   </h4>
                   <ul className="space-y-2 text-stone-700 text-sm font-poppins">
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Cocina completa equipada
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Heladera con freezer
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Vajilla completa
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Mesa y sillas
                     </li>
                   </ul>
@@ -574,15 +566,15 @@ Enviado desde el sitio web de Cabañas NUBA`
                   </h4>
                   <ul className="space-y-2 text-stone-700 text-sm font-poppins">
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Aire acondicionado
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Calefacción a gas natural
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Ventiladores de techo
                     </li>
                   </ul>
@@ -596,15 +588,15 @@ Enviado desde el sitio web de Cabañas NUBA`
                   </h4>
                   <ul className="space-y-2 text-stone-700 text-sm font-poppins">
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Parque privado con mesas
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <Flame className="h-4 w-4 text-forest-600 mr-2 flex-shrink-0" />
                       Asador individual
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <Car className="h-4 w-4 text-forest-600 mr-2 flex-shrink-0" />
                       Cochera cubierta
                     </li>
                   </ul>
@@ -618,19 +610,19 @@ Enviado desde el sitio web de Cabañas NUBA`
                   </h4>
                   <ul className="space-y-2 text-stone-700 text-sm font-poppins">
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Ropa de cama incluida
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Limpieza (opcional)
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Seguridad y matafuegos
                     </li>
                     <li className="flex items-center">
-                      <span className="w-1 h-1 bg-stone-400 rounded-full mr-3 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-stone-600 rounded-full mr-3 flex-shrink-0"></span>
                       Mascotas (consultar)
                     </li>
                   </ul>
@@ -667,39 +659,43 @@ Enviado desde el sitio web de Cabañas NUBA`
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="bg-forest-900 text-stone-50 py-16 sm:py-20 lg:py-24">
+      <section id="contacto" className="bg-[#1a3d0a] py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold mb-3 sm:mb-4">CONTACTO</h2>
-              <p className="text-base sm:text-lg text-stone-300 font-poppins font-medium">Esperamos su consulta</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold mb-3 sm:mb-4 text-white">
+                CONTACTO
+              </h2>
+              <p className="text-base sm:text-lg text-white font-poppins font-semibold">Esperamos su consulta</p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
               <div className="order-2 lg:order-1">
-                <h3 className="text-lg sm:text-xl font-montserrat font-extrabold mb-6 sm:mb-8">INFORMACIÓN</h3>
+                <h3 className="text-lg sm:text-xl font-montserrat font-extrabold mb-6 sm:mb-8 text-white">
+                  INFORMACIÓN
+                </h3>
                 <div className="space-y-4 sm:space-y-6">
                   <div className="flex items-center space-x-3 sm:space-x-4">
-                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-stone-400 flex-shrink-0" />
+                    <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white flex-shrink-0" />
                     <div>
-                      <p className="font-poppins font-semibold text-sm sm:text-base">Teléfono</p>
-                      <p className="text-stone-300 text-xs sm:text-sm font-poppins">+54 9 3546 50-1444</p>
+                      <p className="font-poppins font-bold text-sm sm:text-base text-white">Teléfono</p>
+                      <p className="text-white text-sm sm:text-base font-poppins font-medium">+54 9 3546 50-1444</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 sm:space-x-4">
-                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-stone-400 flex-shrink-0" />
+                    <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white flex-shrink-0" />
                     <div>
-                      <p className="font-poppins font-semibold text-sm sm:text-base">Email</p>
-                      <p className="text-stone-300 text-xs sm:text-sm font-poppins break-all">
+                      <p className="font-montserrat font-bold text-sm sm:text-base text-white">Email</p>
+                      <p className="text-white text-sm sm:text-base font-poppins font-medium break-all">
                         info@nubacabanias.com.ar
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3 sm:space-x-4">
-                    <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-stone-400 flex-shrink-0 mt-1" />
+                    <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-poppins font-semibold text-sm sm:text-base">Dirección</p>
-                      <p className="text-stone-300 text-xs sm:text-sm font-poppins">
+                      <p className="font-montserrat font-bold text-sm sm:text-base text-white">Dirección</p>
+                      <p className="text-white text-sm sm:text-base font-poppins font-medium">
                         Av. Fuerza Aérea Argentina
                         <br />
                         Santa Rosa de Calamuchita, Córdoba
@@ -708,17 +704,17 @@ Enviado desde el sitio web de Cabañas NUBA`
                   </div>
                   <div className="flex items-start space-x-3 sm:space-x-4">
                     <div className="flex space-x-1 sm:space-x-2 flex-shrink-0 mt-1">
-                      <Instagram className="h-4 w-4 sm:h-5 sm:w-5 text-stone-400" />
-                      <Facebook className="h-4 w-4 sm:h-5 sm:w-5 text-stone-400" />
+                      <Instagram className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                      <Facebook className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-montserrat font-semibold text-sm sm:text-base">Redes Sociales</p>
+                      <p className="font-montserrat font-bold text-sm sm:text-base text-white">Redes Sociales</p>
                       <div className="flex flex-col sm:flex-row sm:space-x-4 mt-1 gap-1 sm:gap-0">
                         <a
                           href="https://www.instagram.com/cabanasnuba?igsh=dmp1Nnd3aHJjb21t"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-stone-300 hover:text-white transition-colors text-xs sm:text-sm font-poppins"
+                          className="text-white hover:text-stone-300 transition-colors text-sm sm:text-base font-poppins font-medium underline"
                         >
                           @cabanasnuba
                         </a>
@@ -726,7 +722,7 @@ Enviado desde el sitio web de Cabañas NUBA`
                           href="https://fb.me/NubaCabanias"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-stone-300 hover:text-white transition-colors text-xs sm:text-sm font-poppins"
+                          className="text-white hover:text-stone-300 transition-colors text-sm sm:text-base font-poppins font-medium underline"
                         >
                           NubaCabanias
                         </a>
@@ -735,9 +731,11 @@ Enviado desde el sitio web de Cabañas NUBA`
                   </div>
                 </div>
 
-                <div className="mt-6 sm:mt-8 p-4 sm:p-6 border border-forest-700 rounded-2xl">
-                  <h4 className="font-montserrat font-extrabold mb-3 sm:mb-4 text-sm sm:text-base">CERTIFICACIONES</h4>
-                  <div className="space-y-1 text-xs sm:text-sm text-stone-300 font-poppins">
+                <div className="mt-6 sm:mt-8 p-4 sm:p-6 border-2 border-white rounded-2xl bg-[#2d5016]">
+                  <h4 className="font-montserrat font-extrabold mb-3 sm:mb-4 text-sm sm:text-base text-white">
+                    CERTIFICACIONES
+                  </h4>
+                  <div className="space-y-1 text-sm sm:text-base text-white font-poppins font-medium">
                     <p>• Habilitación Municipal T-148</p>
                     <p>• Calidad Turística SIGO</p>
                     <p>• Ministerio de Turismo</p>
@@ -748,7 +746,7 @@ Enviado desde el sitio web de Cabañas NUBA`
               <div className="order-1 lg:order-2">
                 <form onSubmit={handleContactSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-xs sm:text-sm font-poppins font-semibold mb-2">
+                    <label htmlFor="name" className="block text-sm sm:text-base font-poppins font-bold mb-2 text-white">
                       Nombre *
                     </label>
                     <input
@@ -756,12 +754,15 @@ Enviado desde el sitio web de Cabañas NUBA`
                       id="name"
                       name="name"
                       required
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-forest-800 border border-forest-700 rounded-xl focus:outline-none focus:border-stone-400 text-white font-poppins text-sm"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white border-2 border-white rounded-xl focus:outline-none focus:ring-2 focus:ring-white text-stone-900 font-poppins text-sm sm:text-base font-medium"
                       placeholder="Su nombre completo"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-xs sm:text-sm font-poppins font-semibold mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm sm:text-base font-poppins font-bold mb-2 text-white"
+                    >
                       Email *
                     </label>
                     <input
@@ -769,12 +770,15 @@ Enviado desde el sitio web de Cabañas NUBA`
                       id="email"
                       name="email"
                       required
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-forest-800 border border-forest-700 rounded-xl focus:outline-none focus:border-stone-400 text-white font-poppins text-sm"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white border-2 border-white rounded-xl focus:outline-none focus:ring-2 focus:ring-white text-stone-900 font-poppins text-sm sm:text-base font-medium"
                       placeholder="su@email.com"
                     />
                   </div>
                   <div>
-                    <label htmlFor="dates" className="block text-xs sm:text-sm font-poppins font-semibold mb-2">
+                    <label
+                      htmlFor="dates"
+                      className="block text-sm sm:text-base font-poppins font-bold mb-2 text-white"
+                    >
                       Fechas de estadía *
                     </label>
                     <input
@@ -782,12 +786,15 @@ Enviado desde el sitio web de Cabañas NUBA`
                       id="dates"
                       name="dates"
                       required
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-forest-800 border border-forest-700 rounded-xl focus:outline-none focus:border-stone-400 text-white resize-none font-poppins text-sm"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white border-2 border-white rounded-xl focus:outline-none focus:ring-2 focus:ring-white text-stone-900 font-poppins text-sm sm:text-base font-medium"
                       placeholder="Ej: 15-20 de enero 2024"
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-xs sm:text-sm font-poppins font-semibold mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm sm:text-base font-poppins font-bold mb-2 text-white"
+                    >
                       Mensaje *
                     </label>
                     <textarea
@@ -795,15 +802,15 @@ Enviado desde el sitio web de Cabañas NUBA`
                       name="message"
                       rows={4}
                       required
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-forest-800 border border-forest-700 rounded-xl focus:outline-none focus:border-stone-400 text-white resize-none font-poppins text-sm"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white border-2 border-white rounded-xl focus:outline-none focus:ring-2 focus:ring-white text-stone-900 resize-none font-poppins text-sm sm:text-base font-medium"
                       placeholder="Cuéntenos sobre su consulta, cantidad de personas, preferencias especiales, etc."
                     ></textarea>
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-earth-600 text-white hover:bg-earth-700 py-2 sm:py-3 rounded-xl font-poppins font-semibold flex items-center justify-center space-x-2 text-sm"
+                    className="w-full bg-[#25D366] text-white hover:bg-[#20BA5A] py-3 sm:py-4 rounded-xl font-poppins font-bold flex items-center justify-center space-x-2 text-sm sm:text-base shadow-lg hover:shadow-xl transition-all"
                   >
-                    <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4" />
+                    <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
                     <span>Enviar por WhatsApp</span>
                   </Button>
                 </form>

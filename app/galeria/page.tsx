@@ -151,14 +151,16 @@ export default function GaleriaPage() {
       {/* Call to Action */}
       <section className="bg-gradient-to-r from-forest-600 to-forest-700 py-12 sm:py-16">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-2xl mx-auto text-white">
-            <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold mb-4">¿Te gustó lo que viste?</h2>
-            <p className="text-forest-100 font-poppins mb-6">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold mb-4 text-stone-900">
+              ¿Te gustó lo que viste?
+            </h2>
+            <p className="text-stone-800 font-poppins mb-6">
               Reserva tu estadía en Cabañas NUBA y vive una experiencia única en el Valle de Calamuchita
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/cabana-familiar">
-                <button className="bg-white text-forest-700 hover:bg-stone-100 px-6 py-3 rounded-full font-poppins font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
+                <button className="bg-stone-900 text-white hover:bg-stone-800 px-6 py-3 rounded-full font-poppins font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
                   Ver Cabaña Familiar
                 </button>
               </Link>

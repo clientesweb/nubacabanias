@@ -21,20 +21,13 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 
 export default function CabanaMaderaPage() {
-  const [currentAnnouncement, setCurrentAnnouncement] = useState(0)
   const [currentImage, setCurrentImage] = useState(0)
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [isFormVisible, setIsFormVisible] = useState(false)
-
-  const announcements = [
-    "🌿 Oferta especial: 5 noches al precio de 4",
-    "🏔️ Valle de Calamuchita - Naturaleza pura",
-    "🔥 Cabañas equipadas con asador privado",
-  ]
 
   const galleryImages = [
     { src: "/images/cabana-madera-exterior-1.webp", alt: "Cabaña de Madera - Vista exterior con jardín" },
@@ -86,14 +79,6 @@ export default function CabanaMaderaPage() {
     },
   ]
 
-  // Announcement rotation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentAnnouncement((prev) => (prev + 1) % announcements.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
-
   // WhatsApp click handler
   const handleWhatsAppClick = () => {
     const phoneNumber = "5493546501444"
@@ -127,7 +112,6 @@ ${message}
 
 ---
 🏠 *Cabaña solicitada:* Cabaña de Madera (máx. 2 personas)
-🎉 *Oferta especial:* 5 noches al precio de 4
 Enviado desde el sitio web de Cabañas NUBA`
 
     const phoneNumber = "5493546501444"
@@ -202,26 +186,6 @@ Enviado desde el sitio web de Cabañas NUBA`
           </div>
         </div>
       )}
-
-      {/* Announcement Bar */}
-      <div className="bg-forest-800 text-stone-50 py-2 px-2 text-center relative overflow-hidden">
-        <div className="relative w-full">
-          {announcements.map((announcement, index) => (
-            <div
-              key={index}
-              className={`transition-opacity duration-500 ${
-                index === currentAnnouncement
-                  ? "opacity-100"
-                  : "opacity-0 absolute inset-0 flex items-center justify-center"
-              }`}
-            >
-              <p className="text-xs sm:text-sm font-poppins font-medium px-2 text-center leading-tight">
-                {announcement}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* Header */}
       <header className="bg-white/95 backdrop-blur-sm border-b border-stone-200/50 sticky top-0 z-40">
@@ -452,8 +416,8 @@ Enviado desde el sitio web de Cabañas NUBA`
                       <Shield className="h-5 w-5" />
                       <span className="font-poppins font-semibold text-sm">Reserva Segura</span>
                     </div>
-                    <h3 className="text-xl font-montserrat font-extrabold">Reservar Cabaña de Madera</h3>
-                    <p className="text-amber-100 font-poppins text-sm">Máximo 2 personas • Ambiente romántico</p>
+                    <h3 className="text-xl font-montserrat font-extrabold text-stone-900">Reservar Cabaña de Madera</h3>
+                    <p className="text-stone-700 font-poppins text-sm">Máximo 2 personas • Ambiente romántico</p>
                   </div>
 
                   <CardContent className="p-6">
