@@ -192,7 +192,7 @@ Enviado desde el sitio web de Cabañas NUBA`
             onClick={() => {
               const phoneNumber = "5493546501444"
               const message =
-                "🍻 ¡Hola! Me interesa hospedarme en Cabañas NUBA para la Oktoberfest 2025. ¿Podrían brindarme información sobre disponibilidad y tarifas para las fechas del evento?"
+                "Hola! Me interesa la promocion finde largo para dos $300.000"
               const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
               window.open(whatsappUrl, "_blank")
             }}
