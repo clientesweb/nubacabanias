@@ -192,7 +192,7 @@ Enviado desde el sitio web de Cabañas NUBA`
             onClick={() => {
               const phoneNumber = "5493546501444"
               const message =
-                "Hola! Me interesa la promocion finde largo para dos $300.000"
+                "Hola! Me interesa la promocion finde largo (Feriado) para dos por $300.000 ¿hay disponibilidad? Fecha:"
               const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
               window.open(whatsappUrl, "_blank")
             }}
